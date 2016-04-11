@@ -6,52 +6,44 @@
 		.service('DemandsService', DemandsService);
 
 	/** @ngInject */
-	function DemandsService($q) {
+	function DemandsService($resource,backend_url) {
 		var service = {
-			loadDemands: loadDemands
+			getAllDemands: getAllDemands,
+			getDemandsByID: getDemandsByID,
+			createDemand: createDemand,
+			updateDemand: updateDemand,
+			deleteDemand: deleteDemand
 		};
+		
+		var DemandResource =  $resource(backend_url+'/demands/:id', {}, {
+			query: { method: 'GET', isArray: true },
+			create: { method: 'POST' },
+			show: { method: 'GET' },
+			update: { method: 'PUT', params: {id: '@id'} },
+			delete: { method: 'DELETE', params: {id: '@id'} }
+		});
 		
 		return service;
 		
-		function loadDemands(){
-			var demands = [
-				{
-					title: "Curso de organo",
-					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.",
-					score: 3,
-					price: "$ 99.999",
-					image_url: "assets/images/angular-material.png"
-				},
-				{
-					title: "Curso de organo",
-					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.",
-					score: 3,
-					price: "$ 99.999",
-					image_url: "assets/images/angular-material.png"
-				},
-				{
-					title: "Curso de organo",
-					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.",
-					score: 3,
-					price: "$ 99.999",
-					image_url: "assets/images/angular-material.png"
-				},
-				{
-					title: "Curso de organo",
-					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.",
-					score: 3,
-					price: "$ 99.999",
-					image_url: "assets/images/angular-material.png"
-				},
-				{
-					title: "Curso de organo",
-					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.",
-					score: 3,
-					price: "$ 99.999",
-					image_url: "assets/images/angular-material.png"
-				}
-			];
-			return $q.when(demands);
+		function getAllDemands(){
+			return DemandResource.query().$promise;
 		}
+		
+		function getDemandsByID(ID){
+			return DemandResource.show({id:ID}).$promise;
+		}
+		
+		function createDemand(demand){
+			return DemandResource.create(demand).$promise;
+		}
+		
+		function updateDemand(demand){
+			return DemandResource.update(demand).$promise;
+		}
+		
+		function deleteDemand(demandID){
+			return DemandResource.delete({id:demandID}).$promise;
+		}
+		
 	}
 })();
