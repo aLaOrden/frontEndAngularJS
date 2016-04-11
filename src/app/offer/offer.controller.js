@@ -10,7 +10,7 @@
 		var vm = this;
 		
 		function loadOffers(){
-			OfferService.loadOffers()
+			OfferService.getAllOffers()
 				.then(function(offers){
 					vm.offers = offers;
 				});
