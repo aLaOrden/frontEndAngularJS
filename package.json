@@ -1,11 +1,13 @@
 {
   "name": "ingeSoftIi",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
   "scripts": {
     "test": "gulp test",
     "start": "gulp serve",
-    "postinstall": "bower install"
+    "postinstall": "bower cache clean && bower install"
   },
   "devDependencies": {
     "estraverse": "~4.1.0",
