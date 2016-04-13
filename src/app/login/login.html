@@ -27,12 +27,12 @@
         </md-checkbox>
       </div>
 
-      <section>
-        <md-button class="md-primary" ng-href="{{googleUrl}}" target="_blank">¿Olvido su contraseña?</md-button>
-      </section>
-
       <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
         <md-button class="md-raised md-primary">Iniciar</md-button>
+      </section>
+
+      <section>
+        <md-button class="md-primary" ng-href="{{googleUrl}}" target="_blank">¿Olvido su contraseña?</md-button>
       </section>
 
       <section>
@@ -41,19 +41,23 @@
 
       <label>O inicie sesión con:</label>
 
+      <!-- Redes sociales -->
       <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
-        <md-button class="md-fab" aria-label="google_plus">
+        <md-button id="google_plus" class="md-fab" aria-label="google_plus">
           <i class="fa fa-google-plus fa-2x"></i>
         </md-button>
 
-        <md-button class="md-fab" aria-label="twitter">
+        <md-button id="twitter" class="md-fab" aria-label="twitter">
           <i class="fa fa-twitter fa-2x"></i>
         </md-button>
 
-        <md-button class="md-fab" aria-label="facebook">
+        <md-button id="facebook" class="md-fab" aria-label="facebook">
           <i class="fa fa-facebook fa-2x"></i>
         </md-button>
 
+        <md-button id="linkedin" class="md-fab" aria-label="linkedin">
+          <i class="fa fa-linkedin fa-2x"></i>
+        </md-button>
       </section>
 		</md-card-content>
 	</md-card>

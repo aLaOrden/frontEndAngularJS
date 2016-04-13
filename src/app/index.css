@@ -48,3 +48,31 @@ html {
 md-content.md-default-theme {
   background-color: #eee;
 }
+
+#google_plus {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: #DB4437;
+}
+
+#twitter {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: #1DA1F2;
+}
+
+#facebook {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: #45619D;
+}
+
+#linkedin {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: #1884BB;
+}
