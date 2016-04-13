@@ -14,7 +14,7 @@ La idea es que esta aplicación permita conectar personas que presten servicios 
   - [Miguel Asencio](https://github.com/maasencioh)
   - [Gabriel González](https://github.com/gggonzalezg)
   - [Sebastian Ospina](https://github.com/sebaxo)
-  - [Diego Vásquez] (https://github.com/davasqueza)
+  - [Diego Vásquez](https://github.com/davasqueza)
   - [Erick Velasco](https://github.com/erickvelasco11)
 
 ## Licencia
