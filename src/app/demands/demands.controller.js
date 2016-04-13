@@ -10,7 +10,7 @@
 		var vm = this;
 		
 		function loadDemands(){
-			DemandsService.loadDemands()
+			DemandsService.getAllDemands()
 				.then(function(demands){
 					vm.demands = demands;
 				});
