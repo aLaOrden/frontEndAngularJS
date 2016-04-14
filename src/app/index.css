@@ -49,6 +49,23 @@ md-content.md-default-theme {
   background-color: #eee;
 }
 
+md-sidenav,
+md-sidenav.md-locked-open,
+md-sidenav.md-closed.md-locked-open-add-active {
+  min-width: 200px !important;
+  width: 230px !important;
+  max-width: 230px !important;
+}
+
+#logo {
+  min-width: 150px;
+  max-width: 25%;
+}
+
+.image {
+  width: 100%;
+}
+
 #google_plus {
   color: white;
   width: 50px;
