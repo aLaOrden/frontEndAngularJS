@@ -9,10 +9,12 @@
 	function MainController($mdSidenav) {
 		var vm = this;
 
-		vm.toggleMenu = toggleMenu;
+    vm.closeSideNavPanel = function () {
+      $mdSidenav('left').close();
+    };
 
-		function toggleMenu() {
-			$mdSidenav('left').toggle();
-		}
+    vm.openSideNavPanel = function () {
+      $mdSidenav('left').open();
+    }
 	}
 })();

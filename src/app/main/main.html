@@ -1,23 +1,26 @@
 ﻿<md-content class="fill-height" layout="row" ng-controller="MainController as MainCtrl">
-	<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-		<md-toolbar class="md-whiteframe-4dp md-tall">
-			<h1 class="md-toolbar-tools">Usuario</h1>
-		</md-toolbar>
-		<md-content layout-padding>
-			<b>Menú</b>
-		</md-content>
-	</md-sidenav>
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>Usuario</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="MainCtrl.closeSideNavPanel()">
+          <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-content layout-padding="">
+      Menu
+    </md-content>
+  </md-sidenav>
 	<md-content flex layout="column">
 		<md-toolbar class="md-whiteframe-z2">
 			<div class="md-toolbar-tools">
-				<md-button class="md-icon-button" hide-gt-sm ng-click="MainCtrl.toggleMenu()" aria-label="Menú">
-					<md-icon md-svg-icon="menu"/>
-				</md-button>
-        <!--
-				<h2>
-					<span>A la orden</span>
-				</h2>
-				-->
+        <md-button class="md-icon-button" aria-label="Menú" ng-click="MainCtrl.openSideNavPanel()">
+          <md-icon md-svg-icon="menu"/>
+        </md-button>
         <a id="logo" href="#/home">
           <img class="image" ng-src="assets/images/logo.png" >
         </a>
