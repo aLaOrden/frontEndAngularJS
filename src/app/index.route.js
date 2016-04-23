@@ -7,7 +7,7 @@
 
   function routeConfig($routeProvider) {
     $routeProvider
-    .when('/offer', {
+    .when('/profile', {
       templateUrl: 'app/offer/offer.html',
       controller: 'OfferController',
       controllerAs: 'vm'
@@ -18,8 +18,13 @@
       controllerAs: 'vm'
     })
     .when('/login', {
-      templateUrl: 'app/login/login.html',
+      templateUrl: 'app/login/user.html',
       controller: 'LoginController',
+      controllerAs: 'vm'
+    })
+    .when('/user', {
+      templateUrl: 'app/user/user.html',
+      controller: 'UserController',
       controllerAs: 'vm'
     })
 		.otherwise({
