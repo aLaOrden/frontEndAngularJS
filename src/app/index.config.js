@@ -16,7 +16,7 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
-	
+
 	$mdIconProvider
 		.defaultIconSet("assets/svg/avatars.svg", 128)
 		.icon("menu", "assets/svg/menu.svg", 24)
