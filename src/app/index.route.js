@@ -17,16 +17,6 @@
         controller: 'DemandsController',
         controllerAs: 'vm'
       })
-      .when('/create_demand', {
-        templateUrl: 'app/create_demand/create_demand.html',
-        controller: 'CreateDemandController',
-        controllerAs: 'vm'
-      })
-      .when('/create_offer', {
-        templateUrl: 'app/create_offer/create_offer.html',
-        controller: 'CreateOfferController',
-        controllerAs: 'vm'
-      })
       .when('/login', {
         templateUrl: 'app/login/login.html',
         controller: 'LoginController',
