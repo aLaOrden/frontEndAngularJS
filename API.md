@@ -48,3 +48,14 @@
   username: <string, obligatorio>
 }
 ```
+
+## Score
+
+```js
+{
+  score: <integer, obligatorio>
+  description: <string, opcional>
+  date: <long, obligatorio>
+  offer: <identificador oferta, opcional>
+}
+```
