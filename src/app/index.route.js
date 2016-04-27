@@ -22,9 +22,9 @@
       controller: 'LoginController',
       controllerAs: 'vm'
     })
-    .when('/user', {
-      templateUrl: 'app/user/user.html',
-      controller: 'UserController',
+    .when('/viewUser', {
+      templateUrl: 'app/user/viewUser.html',
+      controller: 'ViewUserController',
       controllerAs: 'vm'
     })
 		.otherwise({

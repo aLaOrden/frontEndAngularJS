@@ -77,18 +77,19 @@ md-content.md-default-theme {
   background-color: #1884BB;
 }
 
-#userName{
-  font-size:xx-large;
+.userProfile {
+	margin: 10px;
 }
 
-#userProfile{
-  text-align: center;
-  position: relative;
-  float: left;
+.md-xl {
+	height: 225px;
+    min-height: 225px;
+    max-height: 225px;
 }
 
-#userInformation{
-  text-align: left;
-  position: relative;
-  float: left;
+.input-overlay {
+	position: absolute;
+    left: 39px;
+    top: 20px;
+	z-index: 999;
 }

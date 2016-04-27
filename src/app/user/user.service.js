@@ -6,23 +6,43 @@
 		.service('UserService', UserService);
 	
 	/** @ngInject */
-	function UserService(frontend_url) {
+	function UserService($resource, backend_url) {
 		var service = {
-			cargarPerfil: cargarPerfil 
+			getAllUsers: getAllUsers,
+			getUserByID: getUserByID,
+			createUser: createUser,
+			updateUser: updateUser,
+			deleteUser: deleteUser
 		};
+		
+		var UserResource =  $resource(backend_url+'/users/:id', {}, {
+			query: { method: 'GET', isArray: true },
+			create: { method: 'POST' },
+			show: { method: 'GET' },
+			update: { method: 'PUT', params: {id: '@id'} },
+			delete: { method: 'DELETE', params: {id: '@id'} }
+		});
 		
 		return service;
 		
-		function cargarPerfil(){
-			var perfil = {
-				nombre: "Elber Galarga",
-				email: "micorreo@example.com",
-				celular: 310101011,
-				genero: "Masculino",
-				foto: frontend_url+"/assets/images/angular.png"
-			};
-			
-			return perfil;
+		function getAllUsers(){
+			return UserResource.query().$promise;
+		}
+		
+		function getUserByID(ID){
+			return UserResource.show({id:ID}).$promise;
+		}
+		
+		function createUser(User){
+			return UserResource.create(User).$promise;
+		}
+		
+		function updateUser(User){
+			return UserResource.update(User).$promise;
+		}
+		
+		function deleteUser(UserID){
+			return UserResource.delete({id:UserID}).$promise;
 		}
 		
 	}
