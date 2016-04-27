@@ -21,6 +21,8 @@
 		.defaultIconSet("assets/svg/avatars.svg", 128)
 		.icon("menu", "assets/svg/menu.svg", 24)
 		.icon("close", "assets/svg/close.svg", 24)
+		.icon("account", "assets/svg/account.svg", 24)
+		.icon("key", "assets/svg/key.svg", 24)
 		.icon("share", "assets/svg/share.svg", 24)
 		.icon("star", "assets/svg/star.svg", 24)
 		.icon("gender", "assets/svg/gender.svg", 24)

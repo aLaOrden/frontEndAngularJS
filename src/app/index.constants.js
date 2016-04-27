@@ -13,6 +13,10 @@
       name: "Mi perfil",
       url: "/viewUser"
     },
+	{
+      name: "Registrar",
+      url: "/register"
+    },
     {
       name: "Ofertas",
       url: "/offer"

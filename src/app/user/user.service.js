@@ -12,7 +12,8 @@
 			getUserByID: getUserByID,
 			createUser: createUser,
 			updateUser: updateUser,
-			deleteUser: deleteUser
+			deleteUser: deleteUser,
+			getAllGenders: getAllGenders
 		};
 		
 		var UserResource =  $resource(backend_url+'/users/:id', {}, {
@@ -43,6 +44,10 @@
 		
 		function deleteUser(UserID){
 			return UserResource.delete({id:UserID}).$promise;
+		}
+		
+		function getAllGenders(){
+			return [{id: 'M', name: 'Hombre'},{id: 'F', name: 'Mujer'}];
 		}
 		
 	}

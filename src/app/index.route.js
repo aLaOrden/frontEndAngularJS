@@ -7,17 +7,6 @@
 
   function routeConfig($routeProvider) {
     $routeProvider
-<<<<<<< HEAD
-		.when('/registro', {
-			templateUrl: 'app/registro/registro.html',
-			controller: 'RegistroController',
-			controllerAs: 'vm'
-		})
-
-		.otherwise({
-			redirectTo: '/registro'
-		});
-=======
     .when('/offer', {
       templateUrl: 'app/offer/offer.html',
       controller: 'OfferController',
@@ -43,10 +32,14 @@
       controller: 'ViewUserController',
       controllerAs: 'vm'
     })
+	.when('/register', {
+		templateUrl: 'app/user/registerUser.html',
+		controller: 'RegisterUserController',
+		controllerAs: 'vm'
+	})
     .otherwise({
         redirectTo: '/home'
     });
->>>>>>> development
   }
 
 })();

@@ -1,0 +1,59 @@
+﻿<md-content>
+	<md-toolbar class="md-tall md-whiteframe-4dp md-hue-1">
+		<div class="md-toolbar-tools">
+			<h2>
+				<span>Registro</span>
+			</h2>
+		</div>
+	</md-toolbar>
+	
+	<md-card>
+		<md-card-content>
+			<md-content class="md-no-momentum">
+				<md-content layout="row">
+					<md-input-container class="md-icon-float md-block" flex>
+						<label>Nombres</label>
+						<md-icon md-svg-icon="account"></md-icon>
+						<input ng-model="vm.profile.firstName" type="text" >
+					</md-input-container>
+					<md-input-container class="md-icon-float md-block" flex>
+						<label>Apellidos</label>
+						<md-icon md-svg-icon=""></md-icon>
+						<input ng-model="vm.profile.lastName">
+					</md-input-container>
+				</md-content>
+				<md-input-container class="md-icon-float md-block">
+					<label>Correo</label>
+					<md-icon md-svg-icon="email"></md-icon>
+					<input ng-model="vm.profile.email" type="text">
+				</md-input-container>
+				<md-input-container class="md-icon-float md-block">
+					<label>Celular</label>
+					<md-icon md-svg-icon="phone"></md-icon>
+					<input ng-model="vm.profile.phone" type="text">
+				</md-input-container>
+				<md-input-container class="md-icon-float md-block">
+					<label>Genero</label>
+					<md-icon md-svg-icon="gender"></md-icon>
+					<md-select ng-model="vm.profile.gender">
+						<md-option ng-value="gender.id" ng-repeat="gender in vm.genders">
+							{{gender.name}}
+						</md-option>
+					</md-select>
+				</md-input-container>
+				<md-input-container class="md-icon-float md-block">
+					<label>Dirección</label>
+					<md-icon md-svg-icon="map"></md-icon>
+					<input ng-model="vm.profile.address" type="text">
+				</md-input-container>
+				<md-content>
+				<md-input-container class="md-icon-float md-block">
+					<label>Contraseña</label>
+					<md-icon md-svg-icon="key"></md-icon>
+					<input type="password" ng-model="vm.profile.password">
+				</md-input-container>
+				<md-button class="md-raised">Registrar</md-button>
+			</md-content>
+		</md-card-content>
+	</md-card>
+</md-content>

@@ -10,6 +10,7 @@
 		
 		vm.userData = {};
 		vm.login = login;
+		vm.redirect = redirect;
 		
 		function login(){
 			LoginService.makeLogin(vm.userData)
@@ -19,6 +20,10 @@
 				.catch(function(){
 					toastr.error('Hubo un error al intentar acceder a su cuenta!', 'Error!');
 				});
+		}
+		
+		function redirect(location){
+			$location.url(location);
 		}
 	}
 })();
