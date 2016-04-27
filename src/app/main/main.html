@@ -4,7 +4,12 @@
 			<h1 class="md-toolbar-tools">Usuario</h1>
 		</md-toolbar>
 		<md-content layout-padding>
-			<b>Menú</b>
+			<md-list flex>
+				<md-subheader class="md-no-sticky">Menú</md-subheader>
+				<md-list-item ng-repeat="menu in MainCtrl.menus" ng-click="MainCtrl.changeLocation(menu.url)">
+					<p>{{ menu.name }}</p>
+				</md-list-item>
+			</md-list>
 		</md-content>
 	</md-sidenav>
 	<md-content flex layout="column">
