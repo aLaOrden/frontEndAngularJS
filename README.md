@@ -4,6 +4,7 @@
 La idea es que esta aplicación permita conectar personas que presten servicios con personas que los necesiten, estos servicios pueden ser tutorias academicas, cuidado de personas, cuidado de mascotas, etc. La idea es que se permita dar un puntaje a estas personas (tipo amazon), se verifique algún documento de identidad (tipo uber) del que preste el servicio, y que las busquedas permitan filtrar por puntaje, por locación, servicio, etc.
 
 ## Documentación de desarrollo
+  - [REST API](./API.md)
   - [Tutorial AngularJS](https://www.codecademy.com/es/learn/learn-angularjs)
   - [5 minutes tutorial](https://www.firebase.com/tutorial/#gettingstarted)
   - [Video Angular + Firebase](https://vimeo.com/131586562)

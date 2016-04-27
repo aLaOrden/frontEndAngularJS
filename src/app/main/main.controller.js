@@ -16,7 +16,7 @@
 		function toggleMenu() {
 			$mdSidenav('left').toggle();
 		}
-		
+
 		function changeLocation(url){
 			$location.url(url);
 		}

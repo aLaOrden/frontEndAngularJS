@@ -22,9 +22,14 @@
       controller: 'LoginController',
       controllerAs: 'vm'
     })
-		.otherwise({
-			redirectTo: '/offer'
-		});
+    .when('/home', {
+      templateUrl: 'app/home/home.html',
+      controller: 'HomeController',
+      controllerAs: 'vm'
+    })
+    .otherwise({
+        redirectTo: '/home'
+    });
   }
 
 })();
