@@ -9,6 +9,10 @@
       name: "Página principal",
       url: "/home"
     },
+	{
+      name: "Mi perfil",
+      url: "/viewUser"
+    },
     {
       name: "Ofertas",
       url: "/offer"

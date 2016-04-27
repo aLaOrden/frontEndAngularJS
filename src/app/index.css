@@ -105,3 +105,20 @@ md-content.md-default-theme {
   height: 50px;
   background-color: #1884BB;
 }
+
+.userProfile {
+	margin: 10px;
+}
+
+.md-xl {
+	height: 225px;
+    min-height: 225px;
+    max-height: 225px;
+}
+
+.input-overlay {
+	position: absolute;
+    left: 39px;
+    top: 20px;
+	z-index: 999;
+}

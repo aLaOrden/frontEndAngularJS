@@ -27,6 +27,11 @@
       controller: 'HomeController',
       controllerAs: 'vm'
     })
+	.when('/viewUser', {
+      templateUrl: 'app/user/viewUser.html',
+      controller: 'ViewUserController',
+      controllerAs: 'vm'
+    })
     .otherwise({
         redirectTo: '/home'
     });
