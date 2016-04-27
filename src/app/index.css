@@ -76,3 +76,19 @@ md-content.md-default-theme {
   height: 50px;
   background-color: #1884BB;
 }
+
+#userName{
+  font-size:xx-large;
+}
+
+#userProfile{
+  text-align: center;
+  position: relative;
+  float: left;
+}
+
+#userInformation{
+  text-align: left;
+  position: relative;
+  float: left;
+}
