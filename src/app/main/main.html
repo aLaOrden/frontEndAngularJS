@@ -1,20 +1,25 @@
 ﻿<md-content class="fill-height" layout="row" ng-controller="MainController as MainCtrl">
-  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-    <md-toolbar layout="row">
-      <div class="md-toolbar-tools">
-        <h2>
-          <span>Usuario</span>
-        </h2>
-        <span flex></span>
-        <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="MainCtrl.closeSideNavPanel()">
-          <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
-    <md-content layout-padding="">
-      Menu
-    </md-content>
-  </md-sidenav>
+	<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+		<md-toolbar class="md-whiteframe-4dp md-tall">
+			<div class="md-toolbar-tools">
+				<h2>
+					<span>Usuario</span>
+				</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="MainCtrl.closeSideNavPanel()">
+					<md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+		<md-content layout-padding>
+			<md-list flex>
+				<md-subheader class="md-no-sticky">Menú</md-subheader>
+				<md-list-item ng-repeat="menu in MainCtrl.menus" ng-click="MainCtrl.changeLocation(menu.url)">
+					<p>{{ menu.name }}</p>
+				</md-list-item>
+			</md-list>
+		</md-content>
+	</md-sidenav>
 	<md-content flex layout="column">
 		<md-toolbar class="md-whiteframe-z2">
 			<div class="md-toolbar-tools">
