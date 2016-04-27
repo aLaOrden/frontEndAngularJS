@@ -59,3 +59,11 @@
   offer: <identificador oferta, opcional>
 }
 ```
+
+## Tag
+
+```js
+{
+  title: <string, obligatorio>
+}
+```
