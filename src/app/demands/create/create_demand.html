@@ -1,0 +1,43 @@
+﻿<md-dialog aria-label="Crear demanda">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2>Crear demanda</h2>
+			<span flex></span>
+			<md-button class="md-icon-button" ng-click="vm.closeDialog()">
+				<md-icon md-svg-icon="close" aria-label="Close dialog"></md-icon>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<form name="createForm" novalidate>
+		<md-dialog-content>
+			<div class="row">
+				<div class="col-md-12">
+				  <md-input-container>
+					<label>Titulo</label>
+					<input name="title" id="title" ng-model="vm.demand.title" ng-required="true">
+					<div ng-messages="createForm.title.$error" ng-if="createForm.title.$dirty">
+						<div ng-message="required">Por favor ingrese el titulo de la demanda.</div>
+					</div>
+				  </md-input-container>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				  <md-input-container>
+					<label>Descripción</label>
+					<input name="description" id="description" ng-model="vm.demand.description" ng-required="true">
+					<div ng-messages="createForm.description.$error" ng-if="createForm.description.$dirty">
+						<div ng-message="required">Por favor ingrese la descripción de la demanda.</div>
+					</div>
+				  </md-input-container>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
+					<md-button ng-click="vm.createDemand()" class="md-primary" ng-disabled="createForm.$invalid">Crear</md-button>
+				</div>
+			</div>
+		</md-dialog-content>
+	</form>
+</md-dialog>

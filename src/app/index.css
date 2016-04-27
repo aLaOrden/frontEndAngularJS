@@ -39,6 +39,7 @@
 
 html {
   font-family: 'Roboto Slab', serif;
+  height: 100%;
 }
 
 .fill-height {
@@ -47,4 +48,77 @@ html {
 
 md-content.md-default-theme {
   background-color: #eee;
+}
+
+#logo {
+  min-width: 150px;
+  max-width: 25%;
+}
+
+.image {
+  width: 100%;
+}
+
+#background {
+  background-image: url("/assets/images/main.jpg");
+  color: white;
+  font-size: 5em;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.inLine {
+  display: inline-flex;
+}
+
+.center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#google_plus {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: #DB4437;
+}
+
+#twitter {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: #1DA1F2;
+}
+
+#facebook {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: #45619D;
+}
+
+#linkedin {
+  color: white;
+  width: 50px;
+  height: 50px;
+  background-color: #1884BB;
+}
+
+.userProfile {
+	margin: 10px;
+}
+
+.md-xl {
+	height: 225px;
+    min-height: 225px;
+    max-height: 225px;
+}
+
+.input-overlay {
+	position: absolute;
+    left: 39px;
+    top: 20px;
+	z-index: 999;
 }

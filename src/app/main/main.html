@@ -4,7 +4,12 @@
 			<h1 class="md-toolbar-tools">Usuario</h1>
 		</md-toolbar>
 		<md-content layout-padding>
-			<b>Menú</b>
+			<md-list flex>
+				<md-subheader class="md-no-sticky">Menú</md-subheader>
+				<md-list-item ng-repeat="menu in MainCtrl.menus" ng-click="MainCtrl.changeLocation(menu.url)">
+					<p>{{ menu.name }}</p>
+				</md-list-item>
+			</md-list>
 		</md-content>
 	</md-sidenav>
 	<md-content flex layout="column">
@@ -13,9 +18,9 @@
 				<md-button class="md-icon-button" hide-gt-sm ng-click="MainCtrl.toggleMenu()" aria-label="Menú">
 					<md-icon md-svg-icon="menu"/>
 				</md-button>
-				<h2>
-					<span>A la orden</span>
-				</h2>
+				<a id="logo" href="#/home">
+					<img class="image" ng-src="assets/images/logo.png" >
+				</a>
 				<span flex>
 				</span>
 				<md-button class="md-icon-button" aria-label="Correo">

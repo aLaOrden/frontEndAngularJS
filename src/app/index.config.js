@@ -16,23 +16,27 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
-	
+
 	$mdIconProvider
 		.defaultIconSet("assets/svg/avatars.svg", 128)
 		.icon("menu", "assets/svg/menu.svg", 24)
+		.icon("close", "assets/svg/close.svg", 24)
 		.icon("share", "assets/svg/share.svg", 24)
+		.icon("star", "assets/svg/star.svg", 24)
+		.icon("gender", "assets/svg/gender.svg", 24)
+		.icon("location", "assets/svg/location.svg", 24)
+		.icon("map", "assets/svg/map.svg", 24)
+		.icon("chat", "assets/svg/chat.svg", 24)
+		.icon("star_fill", "assets/svg/star_fill.svg", 24)
 		.icon("notifications", "assets/svg/notifications.svg", 24)
 		.icon("email", "assets/svg/email.svg", 24)
 		.icon("add", "assets/svg/add.svg", 24)
 		.icon("arrow_forward", "assets/svg/arrow_forward.svg", 24)
-		.icon("google_plus", "assets/svg/google_plus.svg", 512)
-		.icon("hangouts", "assets/svg/hangouts.svg", 512)
-		.icon("twitter", "assets/svg/twitter.svg", 512)
 		.icon("phone", "assets/svg/phone.svg", 512);
 
 	$mdThemingProvider.theme('default')
-		.primaryPalette('teal')
-		.accentPalette('deep-orange');
+		.primaryPalette('indigo')
+		.accentPalette('red');
   }
 
 })();
