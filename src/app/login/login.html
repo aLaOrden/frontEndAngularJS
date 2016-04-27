@@ -9,56 +9,56 @@
 
 	<md-card layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
 		<md-card-content>
-      <div layout-gt-sm="row">
-        <md-input-container class="md-block" flex-gt-sm="">
-          <label>Correo</label>
-          <input ng-model="theMax">
-        </md-input-container>
-      </div>
+			<div layout-gt-sm="row">
+				<md-input-container class="md-block">
+					<label>Correo</label>
+					<input ng-model="vm.userData.email">
+				</md-input-container>
+			</div>
 
-      <md-input-container class="md-block" flex-gt-sm="">
-        <label>Contraseña</label>
-        <input ng-model="theMax">
-      </md-input-container>
+			<md-input-container class="md-block">
+				<label>Contraseña</label>
+				<input ng-model="vm.userData.password" type="password">
+			</md-input-container>
 
-      <div flex-xs="" flex="50">
-        <md-checkbox md-no-ink="" aria-label="¿Recordarte?" ng-model="data.cb5" >
-          ¿Recordarme?
-        </md-checkbox>
-      </div>
+			<div flex-xs="" flex="50">
+				<md-checkbox md-no-ink="" aria-label="¿Recordarte?" ng-model="vm.userData.remember" >
+					¿Recordarme?
+				</md-checkbox>
+			</div>
 
-      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
-        <md-button class="md-raised md-primary">Iniciar</md-button>
-      </section>
+			<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+				<md-button ng-click="vm.login()" class="md-raised md-primary">Iniciar</md-button>
+			</section>
 
-      <section>
-        <md-button class="md-primary" ng-href="{{googleUrl}}" target="_blank">¿Olvido su contraseña?</md-button>
-      </section>
+			<section>
+				<md-button class="md-primary" ng-href="{{googleUrl}}" target="_blank">¿Olvido su contraseña?</md-button>
+			</section>
 
-      <section>
-        <md-button class="md-primary" ng-href="{{googleUrl}}" target="_blank">¿No tiene una cuenta?</md-button>
-      </section>
+			<section>
+				<md-button class="md-primary" ng-href="{{googleUrl}}" target="_blank">¿No tiene una cuenta?</md-button>
+			</section>
 
-      <label>O inicie sesión con:</label>
+			<label>O inicie sesión con:</label>
 
-      <!-- Redes sociales -->
-      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
-        <md-button id="google_plus" class="md-fab" aria-label="google_plus">
-          <i class="fa fa-google-plus fa-2x"></i>
-        </md-button>
+			<!-- Redes sociales -->
+			<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+				<md-button id="google_plus" class="md-fab" aria-label="google_plus">
+					<i class="fa fa-google-plus fa-2x"></i>
+				</md-button>
 
-        <md-button id="twitter" class="md-fab" aria-label="twitter">
-          <i class="fa fa-twitter fa-2x"></i>
-        </md-button>
+				<md-button id="twitter" class="md-fab" aria-label="twitter">
+					<i class="fa fa-twitter fa-2x"></i>
+				</md-button>
 
-        <md-button id="facebook" class="md-fab" aria-label="facebook">
-          <i class="fa fa-facebook fa-2x"></i>
-        </md-button>
+				<md-button id="facebook" class="md-fab" aria-label="facebook">
+					<i class="fa fa-facebook fa-2x"></i>
+				</md-button>
 
-        <md-button id="linkedin" class="md-fab" aria-label="linkedin">
-          <i class="fa fa-linkedin fa-2x"></i>
-        </md-button>
-      </section>
+				<md-button id="linkedin" class="md-fab" aria-label="linkedin">
+					<i class="fa fa-linkedin fa-2x"></i>
+				</md-button>
+			</section>
 		</md-card-content>
 	</md-card>
 

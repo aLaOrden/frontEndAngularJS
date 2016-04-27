@@ -20,6 +20,7 @@
 	$mdIconProvider
 		.defaultIconSet("assets/svg/avatars.svg", 128)
 		.icon("menu", "assets/svg/menu.svg", 24)
+		.icon("close", "assets/svg/close.svg", 24)
 		.icon("share", "assets/svg/share.svg", 24)
 		.icon("notifications", "assets/svg/notifications.svg", 24)
 		.icon("email", "assets/svg/email.svg", 24)
