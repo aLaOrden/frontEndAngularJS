@@ -29,7 +29,7 @@
 
 	$mdThemingProvider.theme('default')
 		.primaryPalette('indigo')
-		.accentPalette('teal');
+		.accentPalette('red');
   }
 
 })();
