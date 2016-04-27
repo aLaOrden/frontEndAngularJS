@@ -11,7 +11,7 @@
   photoLink: <string, opcional>
   price: <integer, obligatorio>
   state: <"activo", "pendiente", "cancelado", "finalizado", "reportado">
-  tags: <arreglo de objetos, vacío al crear>
+  tags: <arreglo de objetos, null al crear>
   title: <string, obligatorio>
   youtubeLink: <string, opcional>
 }
@@ -23,8 +23,28 @@
 {
   description: <string, obligatorio>
   state: <"activo", "pendiente", "cancelado", "finalizado", "reportado">
-  tags: <arreglo de objetos, vacío al crear>
+  tags: <arreglo de objetos, null al crear>
   title: <string, obligatorio>
   solved: <boolean, obligatorio>
+}
+```
+
+## User
+
+```js
+{
+  admin: <boolean, obligatorio>
+  avatarLink: <string, opcional>
+  demands: <arreglo de objetos, null al crear>
+  email: <string, obligatorio>
+  favorites: <arreglo de objetos, null al crear>
+  firstName: <string, obligatorio>
+  gender: <"M","F">
+  lastName: <string, obligatorio>
+  offers: <arreglo de objetos, null al crear>
+  password: <string, obligatorio>
+  phone: <number, opcional>
+  scores: <arreglo de objetos, null al crear>
+  username: <string, obligatorio>
 }
 ```
