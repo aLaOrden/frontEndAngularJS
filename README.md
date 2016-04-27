@@ -10,6 +10,7 @@ La idea es que esta aplicación permita conectar personas que presten servicios 
   - [Video Angular + Firebase](https://vimeo.com/131586562)
   - [AngularFire repo](https://github.com/UnJavaScripter/angularfire-demo)
   - [Yeoman generator for AngularJS with GulpJS](https://github.com/Swiip/generator-gulp-angular)
+  - [Paleta de colores](http://www.materialpalette.com/)
 
 ## Desarrolladores
   - [Miguel Asencio](https://github.com/maasencioh)
