@@ -16,7 +16,7 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
-	
+
 	$mdIconProvider
 		.defaultIconSet("assets/svg/avatars.svg", 128)
 		.icon("menu", "assets/svg/menu.svg", 24)
@@ -28,8 +28,8 @@
 		.icon("phone", "assets/svg/phone.svg", 512);
 
 	$mdThemingProvider.theme('default')
-		.primaryPalette('teal')
-		.accentPalette('deep-orange');
+		.primaryPalette('indigo')
+		.accentPalette('teal');
   }
 
 })();
