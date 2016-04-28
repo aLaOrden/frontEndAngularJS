@@ -1,4 +1,4 @@
-﻿<md-content>
+﻿<div>
 	<md-toolbar class="md-tall md-whiteframe-4dp md-hue-1">
 		<div class="md-toolbar-tools">
 			<h2>
@@ -9,23 +9,18 @@
 
 	<md-card layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
 		<md-card-content>
-			<div layout-gt-sm="row">
-				<md-input-container class="md-block">
-					<label>Correo</label>
-					<input ng-model="vm.userData.email">
-				</md-input-container>
-			</div>
+			<md-input-container class="md-block">
+				<label>Correo</label>
+				<input ng-model="vm.userData.email">
+			</md-input-container>
 
 			<md-input-container class="md-block">
 				<label>Contraseña</label>
 				<input ng-model="vm.userData.password" type="password">
 			</md-input-container>
-
-			<div flex-xs="" flex="50">
-				<md-checkbox md-no-ink="" aria-label="¿Recordarte?" ng-model="vm.userData.remember" >
-					¿Recordarme?
-				</md-checkbox>
-			</div>
+			<md-checkbox md-no-ink="" aria-label="¿Recordarte?" ng-model="vm.userData.remember" >
+				¿Recordarme?
+			</md-checkbox>
 
 			<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
 				<md-button ng-click="vm.login()" class="md-raised md-primary">Iniciar</md-button>
@@ -62,4 +57,4 @@
 		</md-card-content>
 	</md-card>
 
-</md-content>
+</div>

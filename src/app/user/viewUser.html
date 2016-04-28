@@ -1,11 +1,9 @@
-﻿<md-content>
+﻿<div>
 	<md-toolbar class="md-xl md-whiteframe-4dp md-hue-1">
-		<span flex></span>
-		<div layout="row" layout-align="start end">
-			<div class="userProfile">
-				<img height="200" width="200" ng-src="{{vm.profile.avatarLink || 'assets/images/user.png'}}"/>
-			</div>
+		<div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
+			<img flex="15" class="userProfile" ng-src="{{vm.profile.avatarLink || 'assets/images/user.png'}}"/>
 			<div layout="column" layout-align="end start">
+				<span flex/>
 				<span>
 					<h2>{{vm.profile.firstName + " " + vm.profile.lastName}}</h2>
 					<h3>{{vm.profile.username}}</h3>
@@ -58,4 +56,4 @@
 			</md-content>
 		</md-card-content>
 	</md-card>
-</md-content>
+</div>
