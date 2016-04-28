@@ -66,6 +66,7 @@ md-content.md-default-theme {
   text-align: center;
   height: 100%;
   width: 100%;
+  position: absolute;
 }
 
 .inLine {
