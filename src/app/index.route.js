@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -22,9 +22,24 @@
       controller: 'LoginController',
       controllerAs: 'vm'
     })
-		.otherwise({
-			redirectTo: '/offer'
-		});
+    .when('/home', {
+      templateUrl: 'app/home/home.html',
+      controller: 'HomeController',
+      controllerAs: 'vm'
+    })
+	.when('/viewUser', {
+      templateUrl: 'app/user/viewUser.html',
+      controller: 'ViewUserController',
+      controllerAs: 'vm'
+    })
+	.when('/register', {
+		templateUrl: 'app/user/registerUser.html',
+		controller: 'RegisterUserController',
+		controllerAs: 'vm'
+	})
+    .otherwise({
+        redirectTo: '/home'
+    });
   }
 
 })();

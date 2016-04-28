@@ -1,0 +1,22 @@
+﻿<div id="background">
+  <p>A la Orden!</p>
+  <form>
+    <div>
+      <div class="inLine">
+        <md-card>
+          <md-input-container class="md-icon-float md-block">
+            <label>Buscar</label>
+            <input ng-model="vm.home_search" type="text">
+          </md-input-container>
+        </md-card>
+      </div>
+      <div class="inLine">
+        <md-switch ng-model="vm.switch">
+          <p ng-if="vm.switch">Oferta</p>
+          <p ng-if="!vm.switch">Demanda</p>
+        </md-switch>
+      </div>
+    </div>
+    <md-button class="md-raised" ng-click="">Buscar</md-button>
+  </form>
+</div>

@@ -1,0 +1,59 @@
+﻿<div>
+	<md-toolbar class="md-xl md-whiteframe-4dp md-hue-1">
+		<div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
+			<img flex="15" class="userProfile" ng-src="{{vm.profile.avatarLink || 'assets/images/user.png'}}"/>
+			<div layout="column" layout-align="end start">
+				<span flex/>
+				<span>
+					<h2>{{vm.profile.firstName + " " + vm.profile.lastName}}</h2>
+					<h3>{{vm.profile.username}}</h3>
+				</span>
+			</div>
+			<md-button class="md-fab md-fab-bottom-right" aria-label="Favorite">
+				<md-icon md-svg-icon="star_fill"></md-icon>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<md-card>
+		<md-card-content>
+			<md-content class="md-no-momentum">
+				<md-input-container class="md-icon-float md-block">
+					<label>Correo</label>
+					<md-icon md-svg-icon="email"></md-icon>
+					<input ng-model="vm.profile.email" type="text" readonly>
+				</md-input-container>
+				<md-input-container class="md-icon-float md-block">
+					<label>Celular</label>
+					<md-icon md-svg-icon="phone"></md-icon>
+					<input ng-model="vm.profile.phone" type="text" readonly>
+				</md-input-container>
+				<md-input-container class="md-icon-float md-block">
+					<label>Genero</label>
+					<md-icon md-svg-icon="gender"></md-icon>
+					<input ng-model="vm.profile.gender" type="text" readonly>
+				</md-input-container>
+				<md-content>
+					<uib-rating class="input-overlay" state-on="'fa fa-star'" state-off="'fa fa-star-o'" ng-model="vm.profile.score" read-only="true"></uib-rating>
+					<md-input-container class="md-icon-float md-block">
+						<label>Puntuación</label>
+						<md-icon md-svg-icon="star"></md-icon>
+						<input value=" " readonly/>
+					</md-input-container>
+				</md-content>
+				<md-input-container class="md-icon-float md-block">
+					<label>Dirección</label>
+					<md-icon md-svg-icon="map"></md-icon>
+					<input ng-model="vm.profile.address" type="text" readonly>
+				</md-input-container>
+				<md-content>
+					<a class="input-overlay" href="">Iniciar</a>
+					<md-input-container class="md-icon-float md-block">
+						<label>Chat</label>
+						<md-icon md-svg-icon="chat"></md-icon>
+						<input value=" " readonly/>
+					</md-input-container>
+				</md-content>
+			</md-content>
+		</md-card-content>
+	</md-card>
+</div>
