@@ -9,12 +9,12 @@
 	function CreateOfferController(OfferService, $mdDialog, toastr) {
 		var vm = this;
 		
-		vm.demand = {};
+		vm.offer = {state: "activo"};
 		vm.createOffer = createOffer;
 		vm.closeDialog = closeDialog;
 		
 		function createOffer(){
-			OfferService.createOffer(vm.demand)
+			OfferService.createOffer(vm.offer)
 				.then(function(){
 					toastr.success('La oferta fue creada con exito', 'Oferta creada');
 				})

@@ -9,7 +9,7 @@
 	function CreateDemandController(DemandsService, $mdDialog, toastr) {
 		var vm = this;
 		
-		vm.demand = {};
+		vm.demand = {state: "activo", solved: false};
 		vm.createDemand = createDemand;
 		vm.closeDialog = closeDialog;
 		
