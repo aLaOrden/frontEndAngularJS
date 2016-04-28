@@ -34,7 +34,13 @@
 		.icon("email", "assets/svg/email.svg", 24)
 		.icon("add", "assets/svg/add.svg", 24)
 		.icon("arrow_forward", "assets/svg/arrow_forward.svg", 24)
-		.icon("phone", "assets/svg/phone.svg", 512);
+		.icon("phone", "assets/svg/phone.svg", 512)
+        .icon("home", "assets/svg/home.svg", 24)
+        .icon("account_box", "assets/svg/account_box.svg", 24)
+        .icon("create", "assets/svg/create.svg", 24)
+        .icon("shoping_car", "assets/svg/shoping_car.svg", 24)
+        .icon("move_to_inbox", "assets/svg/move_to_inbox.svg", 24)
+        .icon("person_add", "assets/svg/person_add.svg", 24);
 
 	$mdThemingProvider.theme('default')
 		.primaryPalette('indigo')

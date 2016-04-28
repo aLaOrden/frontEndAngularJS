@@ -71,6 +71,11 @@ md-content.md-default-theme {
 
 .inLine {
   display: inline-flex;
+  font-size: 0.5em;
+}
+
+.main {
+  background-color: white !important;
 }
 
 .center {
