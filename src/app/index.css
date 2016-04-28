@@ -74,6 +74,10 @@ md-content.md-default-theme {
   font-size: 0.5em;
 }
 
+.main {
+  background-color: white !important;
+}
+
 .center {
   position: relative;
   top: 50%;
