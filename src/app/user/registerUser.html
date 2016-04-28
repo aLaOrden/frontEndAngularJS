@@ -59,10 +59,12 @@
 							<input type="password" ng-model="vm.profile.password" md-maxlength="15" md-minlength="5" required>
 						</md-input-container>
 					</md-content>
+					<!--
 					<md-content layout="row">
 						<md-checkbox ng-model="vm.profile.admin" ng-false-value="false">
 						<span>¿Administrador?</span>
 					</md-content>
+					-->
 					
 					<md-button class="md-raised" ng-disabled="createForm.$invalid" ng-click="vm.registerUser()">Registrar</md-button>
 				</md-content>
