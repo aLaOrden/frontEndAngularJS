@@ -7,7 +7,7 @@
 			<md-list flex>
 				<md-subheader class="md-no-sticky">Menú</md-subheader>
 				<md-list-item ng-repeat="menu in MainCtrl.menus" ng-click="MainCtrl.changeLocation(menu.url)">
-					<p>{{ menu.name }}</p>
+					<p> <md-icon md-svg-icon="{{ menu.img }}"></md-icon> &nbsp; {{ menu.name }}</p>
 				</md-list-item>
 			</md-list>
 		</md-content>
