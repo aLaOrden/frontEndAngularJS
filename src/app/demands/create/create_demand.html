@@ -37,18 +37,20 @@
 				</md-content>
 				<md-input-container class="md-block">
 					<label>Precio</label>
-					<input name="price" id="price" ng-model="vm.demand.price" ng-required="true">
+					<input name="price" id="price" ng-model="vm.demand.price" type="number" ng-required="true">
 					<div ng-messages="createForm.price.$error" ng-if="createForm.price.$dirty">
 						<div ng-message="required">Por favor ingrese el precio de la demanda.</div>
 					</div>
-				</md-input-container>
-				<md-input-container class="md-block">
-					<label>Fecha máxima</label>
-					<input name="deadline" id="deadline" ng-model="vm.demand.deadline" ng-required="true">
-					<div ng-messages="createForm.deadline.$error" ng-if="createForm.deadline.$dirty">
-						<div ng-message="required">Por favor ingrese fecha máxima de la demanda.</div>
-					</div>
-				</md-input-container>
+				</md-input-container>				
+				<div class="md-block">
+					<md-datepicker name="deadline" ng-model="vm.demand.deadline" md-placeholder="Fecha máxima" required></md-datepicker>
+					</br>
+					<md-input-container>
+						<div class="validation-messages" ng-messages="createForm.deadline.$error" ng-if="createForm.deadline.$dirty">
+							<div ng-message="required">Por favor ingrese fecha máxima de la demanda.</div>
+						</div>
+					</md-input-container>
+				</div>
 				
 				<md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
 				<md-button ng-click="vm.createDemand()" class="md-primary" ng-disabled="createForm.$invalid">Crear</md-button>
