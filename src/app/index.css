@@ -135,3 +135,17 @@ md-content.md-default-theme {
     top: 20px;
 	z-index: 10;
 }
+
+@media (max-width: 600px) {
+	.angular-google-map-container { 
+		height: 256px; 
+		width: 256px;
+	}
+}
+@media (min-width: 600px) {
+	.angular-google-map-container { 
+		height: 465px; 
+		width: 465px;
+	}
+}
+	

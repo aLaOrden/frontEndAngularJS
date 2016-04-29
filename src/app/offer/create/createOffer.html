@@ -11,49 +11,61 @@
 	<form name="createForm" novalidate>
 		<md-dialog-content>
 			<md-content class="md-padding">
-				<md-input-container class="md-block">
-					<label>Titulo</label>
-					<input name="title" id="title" ng-model="vm.offer.title" ng-required="true" md-maxlength="50" md-minlength="5">
-					<div ng-messages="createForm.title.$error" ng-if="createForm.title.$dirty">
-						<div ng-message="required">Por favor ingrese el titulo de la demanda.</div>
-					</div>
-				</md-input-container>
-				<md-input-container class="md-block">
-					<label>Descripción</label>
-					<input name="description" id="description" ng-model="vm.offer.description" ng-required="true">
-					<div ng-messages="createForm.description.$error" ng-if="createForm.description.$dirty">
-						<div ng-message="required">Por favor ingrese la descripción de la demanda.</div>
-					</div>
-				</md-input-container>
-				<md-content layout="row" flex>
-					<md-input-container class="md-block" flex>
-						<label>Latitud</label>
-						<input ng-model="vm.offer.latitude" type="text" required>
-					</md-input-container>
-					<md-input-container class="md-block" flex>
-						<label>Longitud</label>
-						<input ng-model="vm.offer.longitude" type="text" required>
-					</md-input-container>
-				</md-content>
-				<md-input-container class="md-block">
-					<label>Precio</label>
-					<input name="price" id="price" ng-model="vm.offer.price" type="number" ng-required="true">
-					<div ng-messages="createForm.price.$error" ng-if="createForm.price.$dirty">
-						<div ng-message="required">Por favor ingrese el precio de la demanda.</div>
-					</div>
-				</md-input-container>
-				<div class="md-block">
-					<md-datepicker name="deadline" ng-model="vm.offer.deadline" md-placeholder="Fecha máxima" required></md-datepicker>
-					</br>
-					<md-input-container>
-						<div class="validation-messages" ng-messages="createForm.deadline.$error" ng-if="createForm.deadline.$dirty">
-							<div ng-message="required">Por favor ingrese fecha máxima de la demanda.</div>
+				<div ng-show="!vm.selectingLocation">
+					<md-input-container class="md-block">
+						<label>Titulo</label>
+						<input name="title" id="title" ng-model="vm.offer.title" ng-required="true" md-maxlength="50" md-minlength="5">
+						<div ng-messages="createForm.title.$error" ng-if="createForm.title.$dirty">
+							<div ng-message="required">Por favor ingrese el titulo de la demanda.</div>
 						</div>
 					</md-input-container>
+					<md-input-container class="md-block">
+						<label>Descripción</label>
+						<input name="description" id="description" ng-model="vm.offer.description" ng-required="true">
+						<div ng-messages="createForm.description.$error" ng-if="createForm.description.$dirty">
+							<div ng-message="required">Por favor ingrese la descripción de la demanda.</div>
+						</div>
+					</md-input-container>
+					<md-content layout="row" flex>
+						<md-input-container class="md-block" flex>
+							<label>Latitud</label>
+							<input ng-model="vm.offer.latitude" type="text" readonly required>
+						</md-input-container>
+						<md-input-container class="md-block" flex>
+							<label>Longitud</label>
+							<input ng-model="vm.offer.longitude" type="text" readonly required>
+						</md-input-container>
+						<md-button ng-click="vm.selectLocation()" class="md-icon-button">
+							<md-icon md-svg-icon="location" aria-label="Location"></md-icon>
+						</md-button>
+					</md-content>
+					<md-input-container class="md-block">
+						<label>Precio</label>
+						<input name="price" id="price" ng-model="vm.offer.price" type="number" ng-required="true">
+						<div ng-messages="createForm.price.$error" ng-if="createForm.price.$dirty">
+							<div ng-message="required">Por favor ingrese el precio de la demanda.</div>
+						</div>
+					</md-input-container>
+					<div class="md-block">
+						<md-datepicker name="deadline" ng-model="vm.offer.deadline" md-placeholder="Fecha máxima" required></md-datepicker>
+						</br>
+						<md-input-container>
+							<div class="validation-messages" ng-messages="createForm.deadline.$error" ng-if="createForm.deadline.$dirty">
+								<div ng-message="required">Por favor ingrese fecha máxima de la demanda.</div>
+							</div>
+						</md-input-container>
+					</div>
+					<md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
+					<md-button ng-click="vm.createOffer()" class="md-primary" ng-disabled="createForm.$invalid">Crear</md-button>
 				</div>
 				
-				<md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
-				<md-button ng-click="vm.createOffer()" class="md-primary" ng-disabled="createForm.$invalid">Crear</md-button>
+				<div ng-show="vm.selectingLocation">
+					<ui-gmap-google-map center='vm.mapCenter' zoom='8'>
+						<ui-gmap-marker	coords='vm.mapCenter' idKey="vm.mapCenter.idkey"></ui-gmap-marker>
+					</ui-gmap-google-map>
+					<md-button ng-click="vm.selectLocation()" class="md-primary">Asignar</md-button>
+				</div>
+				
 			</md-content>
 		</md-dialog-content>
 	</form>

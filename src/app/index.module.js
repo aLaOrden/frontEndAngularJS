@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('ingeSoftIi', ['ngAnimate', 'ngMessages', 'ngResource', 'ngRoute', 'ngMaterial', 'toastr','ui.bootstrap']);
+		.module('ingeSoftIi', ['ngAnimate', 'ngMessages', 'ngResource', 'ngRoute', 'ngMaterial', 'toastr', 'ui.bootstrap', 'uiGmapgoogle-maps']);
 
 	angular.module("uib/template/rating/rating.html", []).run(["$templateCache", function($templateCache) {
 		$templateCache.put("uib/template/rating/rating.html",
