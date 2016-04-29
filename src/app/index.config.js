@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, $mdThemingProvider, $mdIconProvider) {
+  function config($logProvider, toastrConfig, $mdThemingProvider, $mdIconProvider, $mdDateLocaleProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -45,6 +45,53 @@
 	$mdThemingProvider.theme('default')
 		.primaryPalette('indigo')
 		.accentPalette('red');
+
+	$mdDateLocaleProvider.months = [
+		"enero",
+		"febrero",
+		"marzo",
+		"abril",
+		"mayo",
+		"junio",
+		"julio",
+		"agosto",
+		"septiembre",
+		"octubre",
+		"noviembre",
+		"diciembre"
+    ];
+	$mdDateLocaleProvider.shortMonths = [
+		"ene.",
+		"feb.",
+		"mar.",
+		"abr.",
+		"may.",
+		"jun.",
+		"jul.",
+		"ago.",
+		"sept.",
+		"oct.",
+		"nov.",
+		"dic."
+    ];
+	$mdDateLocaleProvider.days = [
+		"domingo",
+		"lunes",
+		"martes",
+		"mi\u00e9rcoles",
+		"jueves",
+		"viernes",
+		"s\u00e1bado"
+    ];
+	$mdDateLocaleProvider.shortDays = [
+		"dom.",
+		"lun.",
+		"mar.",
+		"mi\u00e9.",
+		"jue.",
+		"vie.",
+		"s\u00e1b."
+    ];
   }
 
 })();
