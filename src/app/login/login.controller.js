@@ -14,8 +14,13 @@
 		
 		function login(){
 			LoginService.makeLogin(vm.userData)
-				.then(function(){
-					$location.url('/offer');
+				.then(function(auth){
+					if(auth.access === "denied"){
+						toastr.error('Nombre de usuario o contraseña incorrectas!', 'Error!');
+					}
+					else{
+						redirect('/offer');
+					}
 				})
 				.catch(function(){
 					toastr.error('Hubo un error al intentar acceder a su cuenta!', 'Error!');

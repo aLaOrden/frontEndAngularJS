@@ -10,7 +10,7 @@
 			makeLogin: makeLogin
 		};
 		
-		var LoginResource =  $resource(backend_url+'/login', {}, {
+		var LoginResource =  $resource(backend_url+'/users/login', {}, {
 			login: { method: 'POST' }
 		});
 		
