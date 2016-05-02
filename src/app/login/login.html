@@ -15,12 +15,11 @@
 		<md-card-content>
 
 
-			<form name="myForm">
 				<md-input-container  class="md-block" >
 					<label>Nombre de usuario</label>
 					<input name="username" id="username" ng-model="vm.login.username" type="text" ng-required="true">
 					<div ng-messages="createForm.username.$error" ng-if="createForm.username.$dirty">
-						<div ng-message="required">Debe ingresar un nombre valido.</div>
+						<div ng-message="required">Su nombre de usuario debe tener almenos 1 caracter .</div>
 					</div>
 				</md-input-container>
 
@@ -28,7 +27,10 @@
 
 			<md-input-container class="md-block">
 				<label>Contraseña</label>
-				<input ng-model="vm.userData.password" type="password">
+				<input name="password" id="password" ng-model="vm.userData.password"  type="password" ng-required="true" minlength="5">
+				<div ng-messages="createForm.password.$error" ng-if="createForm.password.$dirty">
+						<div ng-message="minlength">Su contraseña debe tener minimo 5 caracteres.</div>
+				</div>
 			</md-input-container>
 			<md-checkbox md-no-ink="" aria-label="¿Recordarte?" ng-model="vm.userData.remember" >
 				¿Recordarme?
