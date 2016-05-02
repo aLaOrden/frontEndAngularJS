@@ -40,8 +40,12 @@
 					</md-content>
 					<md-input-container class="md-icon-float md-block">
 						<label>Correo</label>
+						<input name="email" id="email" ng-model="vm.profile.email" type="email" ng-required="true">
+							<div ng-messages="createForm.email.$error" ng-if="createForm.email.$dirty">
+								    <div ng-message="required">Por favor ingrese un correo valido.</div>
+    								<div ng-message="email">Por favor ingrese un correo valido.</div>
+							</div>
 						<md-icon md-svg-icon="email"></md-icon>
-						<input ng-model="vm.profile.email" type="email" required>
 					</md-input-container>
 					<md-input-container class="md-icon-float md-block">
 						<label>Celular</label>
