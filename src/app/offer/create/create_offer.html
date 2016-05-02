@@ -25,16 +25,26 @@
 						<div ng-message="required">Por favor ingrese la descripción de la demanda.</div>
 					</div>
 				</md-input-container>
+
 				<md-content layout="row" flex>
+
 					<md-input-container class="md-block" flex>
 						<label>Latitud</label>
-						<input ng-model="vm.offer.latitude" type="text" required>
+						<input name="latitude" id="latitude" ng-model="vm.offer.latitude" type="text" ng-required="true">
+							<div ng-messages="createForm.latitude.$error" ng-if="createForm.latitude.$dirty">
+								<div ng-message="required">Por favor ingrese la latitud de su vivienda.</div>
+							</div>
 					</md-input-container>
+
 					<md-input-container class="md-block" flex>
 						<label>Longitud</label>
-						<input ng-model="vm.offer.longitude" type="text" required>
+						<input name="longitude" id="longitude" ng-model="vm.offer.longitude" type="text" ng-required="true">
+							<div ng-messages="createForm.longitude.$error" ng-if="createForm.longitude.$dirty">
+								<div ng-message="required">Por favor ingrese la longitud de su vivienda.</div>
+							</div>
 					</md-input-container>
 				</md-content>
+
 				<md-input-container class="md-block">
 					<label>Precio</label>
 					<input name="price" id="price" ng-model="vm.offer.price" type="number" ng-required="true">
