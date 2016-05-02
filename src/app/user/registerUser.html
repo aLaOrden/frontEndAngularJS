@@ -47,11 +47,17 @@
 							</div>
 						<md-icon md-svg-icon="email"></md-icon>
 					</md-input-container>
+
 					<md-input-container class="md-icon-float md-block">
 						<label>Celular</label>
+						<input name="phone" id="phone" ng-model="vm.profile.phone" type="number" ng-required="true" minlength="8">
+							<div ng-messages="createForm.phone.$error" ng-if="createForm.phone.$dirty">
+							<div ng-message="required">Por favor ingrese su numero.</div>
+								<div ng-message="minlength">Por favor ingrese su numero.</div>
+							</div>
 						<md-icon md-svg-icon="phone"></md-icon>
-						<input ng-model="vm.profile.phone" type="text" required>
 					</md-input-container>
+
 					<md-input-container class="md-icon-float md-block">
 						<label>Genero</label>
 						<md-icon md-svg-icon="gender"></md-icon>

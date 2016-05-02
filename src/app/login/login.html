@@ -1,7 +1,4 @@
-﻿<script src="path/to/angular.js"></script>
-<script src="path/to/angular-messages.js"></script>
-
-
+﻿
 <div>
 	<md-toolbar class="md-tall md-whiteframe-4dp md-hue-1">
 		<div class="md-toolbar-tools">
@@ -17,6 +14,7 @@
 
 				<md-input-container  class="md-block" >
 					<label>Nombre de usuario</label>
+
 					<input name="username" id="username" ng-model="vm.login.username" type="text" ng-required="true">
 					<div ng-messages="createForm.username.$error" ng-if="createForm.username.$dirty">
 						<div ng-message="required">Su nombre de usuario debe tener almenos 1 caracter .</div>
@@ -29,6 +27,7 @@
 				<label>Contraseña</label>
 				<input name="password" id="password" ng-model="vm.userData.password"  type="password" ng-required="true" minlength="5">
 				<div ng-messages="createForm.password.$error" ng-if="createForm.password.$dirty">
+						<div ng-message="required">Su contraseña debe tener minimo 5 caracteres.</div>
 						<div ng-message="minlength">Su contraseña debe tener minimo 5 caracteres.</div>
 				</div>
 			</md-input-container>
