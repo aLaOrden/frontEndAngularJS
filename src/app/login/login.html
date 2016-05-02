@@ -1,4 +1,8 @@
-﻿<div>
+﻿<script src="path/to/angular.js"></script>
+<script src="path/to/angular-messages.js"></script>
+
+
+<div>
 	<md-toolbar class="md-tall md-whiteframe-4dp md-hue-1">
 		<div class="md-toolbar-tools">
 			<h2>
@@ -6,13 +10,21 @@
 			</h2>
 		</div>
 	</md-toolbar>
-
+	<form name="createForm" novalidate>
 	<md-card layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
 		<md-card-content>
-			<md-input-container class="md-block">
-				<label>Nombre de usuario</label>
-				<input ng-model="vm.userData.username">
-			</md-input-container>
+
+
+			<form name="myForm">
+				<md-input-container  class="md-block" >
+					<label>Nombre de usuario</label>
+					<input name="username" id="username" ng-model="vm.login.username" type="text" ng-required="true">
+					<div ng-messages="createForm.username.$error" ng-if="createForm.username.$dirty">
+						<div ng-message="required">Debe ingresar un nombre valido.</div>
+					</div>
+				</md-input-container>
+
+
 
 			<md-input-container class="md-block">
 				<label>Contraseña</label>
@@ -56,5 +68,5 @@
 			</section>
 		</md-card-content>
 	</md-card>
-
+	</form>
 </div>
