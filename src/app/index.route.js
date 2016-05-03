@@ -28,12 +28,12 @@
       controllerAs: 'vm'
     })
 	.when('/viewUser', {
-      templateUrl: 'app/user/viewUser.html',
+      templateUrl: 'app/user/view/viewUser.html',
       controller: 'ViewUserController',
       controllerAs: 'vm'
     })
 	.when('/register', {
-		templateUrl: 'app/user/registerUser.html',
+		templateUrl: 'app/user/register/registerUser.html',
 		controller: 'RegisterUserController',
 		controllerAs: 'vm'
 	})
