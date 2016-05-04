@@ -14,15 +14,15 @@
 				<md-input-container class="md-block">
 					<label>Titulo</label>
 					<input name="title" id="title" ng-model="vm.offer.title" ng-required="true" md-maxlength="50" md-minlength="5">
-					<div ng-messages="createForm.title.$error" ng-if="createForm.title.$dirty">
-						<div ng-message="required">Por favor ingrese el titulo de la demanda.</div>
+					<div ng-messages="createForm.title.$error" ng-if="createForm.title.$touched">
+						<div ng-message="required">Por favor ingrese el titulo de la oferta.</div>
 					</div>
 				</md-input-container>
 				<md-input-container class="md-block">
 					<label>Descripción</label>
 					<input name="description" id="description" ng-model="vm.offer.description" ng-required="true">
-					<div ng-messages="createForm.description.$error" ng-if="createForm.description.$dirty">
-						<div ng-message="required">Por favor ingrese la descripción de la demanda.</div>
+					<div ng-messages="createForm.description.$error" ng-if="createForm.description.$touched">
+						<div ng-message="required">Por favor ingrese la descripción de la oferta.</div>
 					</div>
 				</md-input-container>
 
@@ -31,16 +31,16 @@
 					<md-input-container class="md-block" flex>
 						<label>Latitud</label>
 						<input name="latitude" id="latitude" ng-model="vm.offer.latitude" type="text" ng-required="true">
-							<div ng-messages="createForm.latitude.$error" ng-if="createForm.latitude.$dirty">
-								<div ng-message="required">Por favor ingrese la latitud de su vivienda.</div>
+							<div ng-messages="createForm.latitude.$error" ng-if="createForm.latitude.$touched">
+								<div ng-message="required">Por favor ingrese la latitud de la ubicación.</div>
 							</div>
 					</md-input-container>
 
 					<md-input-container class="md-block" flex>
 						<label>Longitud</label>
 						<input name="longitude" id="longitude" ng-model="vm.offer.longitude" type="text" ng-required="true">
-							<div ng-messages="createForm.longitude.$error" ng-if="createForm.longitude.$dirty">
-								<div ng-message="required">Por favor ingrese la longitud de su vivienda.</div>
+							<div ng-messages="createForm.longitude.$error" ng-if="createForm.longitude.$touched">
+								<div ng-message="required">Por favor ingrese la longitud de la ubicación.</div>
 							</div>
 					</md-input-container>
 				</md-content>
@@ -48,16 +48,16 @@
 				<md-input-container class="md-block">
 					<label>Precio</label>
 					<input name="price" id="price" ng-model="vm.offer.price" type="number" ng-required="true">
-					<div ng-messages="createForm.price.$error" ng-if="createForm.price.$dirty">
-						<div ng-message="required">Por favor ingrese el precio de la demanda.</div>
+					<div ng-messages="createForm.price.$error" ng-if="createForm.price.$touched">
+						<div ng-message="required">Por favor ingrese el precio de la oferta.</div>
 					</div>
 				</md-input-container>
 				<div class="md-block">
 					<md-datepicker name="deadline" ng-model="vm.offer.deadline" md-placeholder="Fecha máxima" required></md-datepicker>
 					</br>
 					<md-input-container>
-						<div class="validation-messages" ng-messages="createForm.deadline.$error" ng-if="createForm.deadline.$dirty">
-							<div ng-message="required">Por favor ingrese fecha máxima de la demanda.</div>
+						<div class="validation-messages" ng-messages="createForm.deadline.$error" ng-if="createForm.deadline.$touched">
+							<div ng-message="required">Por favor ingrese fecha máxima de la oferta.</div>
 						</div>
 					</md-input-container>
 				</div>

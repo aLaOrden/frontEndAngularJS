@@ -19,8 +19,8 @@
 
 							<input name="firstName" id="firstName" ng-model="vm.profile.firstName" type="text" ng-required="true">
 
-							<div ng-messages="createForm.firstName.$error" ng-if="createForm.firstName.$dirty">
-								<div ng-message="required">Su nombre debe tener almenos 1 caracter .</div>
+							<div ng-messages="createForm.firstName.$error" ng-if="createForm.firstName.$touched">
+								<div ng-message="required">Su nombre debe tener al menos 1 carácter .</div>
 							</div>
 
 							<md-icon md-svg-icon="account"></md-icon>
@@ -30,8 +30,8 @@
 							<label>Apellidos</label>
 
 							<input name="lastName" id="lastName" ng-model="vm.profile.lastName" type="text" ng-required="true">
-							<div ng-messages="createForm.lastName.$error" ng-if="createForm.lastName.$dirty">
-								<div ng-message="required">Su apellido debe tener almenos 1 caracter .</div>
+							<div ng-messages="createForm.lastName.$error" ng-if="createForm.lastName.$touched">
+								<div ng-message="required">Su apellido debe tener al menos 1 carácter .</div>
 							</div>
 
 							<md-icon md-svg-icon=""></md-icon>
@@ -41,7 +41,7 @@
 					<md-input-container class="md-icon-float md-block">
 						<label>Correo</label>
 						<input name="email" id="email" ng-model="vm.profile.email" type="email" ng-required="true">
-							<div ng-messages="createForm.email.$error" ng-if="createForm.email.$dirty">
+							<div ng-messages="createForm.email.$error" ng-if="createForm.email.$touched">
 								    <div ng-message="required">Por favor ingrese un correo valido.</div>
     								<div ng-message="email">Por favor ingrese un correo valido.</div>
 							</div>
@@ -51,7 +51,7 @@
 					<md-input-container class="md-icon-float md-block">
 						<label>Celular</label>
 						<input name="phone" id="phone" ng-model="vm.profile.phone" type="number" ng-required="true" minlength="8">
-							<div ng-messages="createForm.phone.$error" ng-if="createForm.phone.$dirty">
+							<div ng-messages="createForm.phone.$error" ng-if="createForm.phone.$touched">
 							<div ng-message="required">Por favor ingrese su numero.</div>
 								<div ng-message="minlength">Por favor ingrese su numero.</div>
 							</div>
@@ -71,8 +71,8 @@
 					<md-input-container class="md-icon-float md-block">
 						<label>Dirección</label>
 						<input name="address" id="address" ng-model="vm.profile.address" type="text" ng-required="true">
-							<div ng-messages="createForm.addrees.$error" ng-if="createForm.addrees.$dirty">
-								<div ng-message="required">Su nombre de usuario debe tener almenos 1 caracter .</div>
+							<div ng-messages="createForm.addrees.$error" ng-if="createForm.addrees.$touched">
+								<div ng-message="required">Su nombre de usuario debe tener al menos 1 carácter .</div>
 							</div>
 						<md-icon md-svg-icon="map"></md-icon>
 					</md-input-container>
@@ -82,8 +82,8 @@
 						<md-input-container class="md-icon-float md-block" flex>
 								<label>Nombre de usuario</label>
 								<input name="username" id="username" ng-model="vm.profile.username" type="text" ng-required="true">
-									<div ng-messages="createForm.username.$error" ng-if="createForm.username.$dirty">
-										<div ng-message="required">Su nombre de usuario debe tener almenos 1 caracter .</div>
+									<div ng-messages="createForm.username.$error" ng-if="createForm.username.$touched">
+										<div ng-message="required">Su nombre de usuario debe tener al menos 1 carácter .</div>
 									</div>
 								<md-icon md-svg-icon="account"></md-icon>
 							</md-input-container>
@@ -91,9 +91,9 @@
 						<md-input-container class="md-icon-float md-block" flex>
 							<label>Contraseña</label>
 							<input name="password" id="password" ng-model="vm.profile.password"  type="password" ng-required="true" minlength="5">
-								<div ng-messages="createForm.password.$error" ng-if="createForm.password.$dirty">
-										<div ng-message="required">Su contraseña debe tener minimo 5 caracteres.</div>
-										<div ng-message="minlength">Su contraseña debe tener minimo 5 caracteres.</div>
+								<div ng-messages="createForm.password.$error" ng-if="createForm.password.$touched">
+										<div ng-message="required">Su contraseña debe tener minimo 5 carácteres.</div>
+										<div ng-message="minlength">Su contraseña debe tener minimo 5 carácteres.</div>
 								</div>
 							<md-icon md-svg-icon="key"></md-icon>
 						</md-input-container>
