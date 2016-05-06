@@ -8,17 +8,17 @@
 	/** @ngInject */
 	function DemandsController(DemandsService, $mdDialog) {
 		var vm = this;
-		
+
 		vm.openCreateDialog = openCreateDialog;
-		
+
 		function loadDemands(){
 			DemandsService.getAllDemands()
 				.then(function(demands){
 					vm.demands = demands;
 				});
 		}
-		
-		function openCreateDialog($event){				
+
+		function openCreateDialog($event){
 			$mdDialog.show({
 				controller: 'CreateDemandController',
 				controllerAs: 'vm',
@@ -27,7 +27,17 @@
 				clickOutsideToClose:true
 			});
 		}
-		
+
+    function openCreateDialogEdit($event){
+      $mdDialog.show({
+        controller: 'UpdateDemandController',
+        controllerAs: 'vm',
+        templateUrl: 'app/demands/update/update_demand.html',
+        targetEvent: $event,
+        clickOutsideToClose:true
+      });
+    }
+
 		loadDemands();
 	}
 })();
