@@ -15,7 +15,7 @@
 		function login(){
 			LoginService.makeLogin(vm.userData)
 				.then(function(auth){
-					if(auth.access === "denied"){
+					if(auth.denied){
 						toastr.error('Nombre de usuario o contraseña incorrectas!', 'Error!');
 					}
 					else{
