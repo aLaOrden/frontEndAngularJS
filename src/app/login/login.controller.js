@@ -19,6 +19,7 @@
 						toastr.error('Nombre de usuario o contraseña incorrectas!', 'Error!');
 					}
 					else{
+						sessionStorage.user = auth;
 						redirect('/offer');
 					}
 				})
