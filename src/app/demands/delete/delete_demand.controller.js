@@ -1,27 +1,29 @@
-(function () {
+(function() {
   'use strict';
+
   angular
     .module('ingeSoftIi')
-    .controller('UpdateDemandController',UpdateDemandController);
+    .controller('DeleteDemandController', DeleteDemandController);
 
   /** @ngInject */
-  function UpdateDemandController(DemandsService,$mdDialog,toastr) {
+  function DeleteDemandController(DemandsService,$mdDialog,toastr) {
     var vm = this;
 
-    vm.updateDemand = updateDemand;
+    vm.deleteDemand = deleteDemand;
     vm.closeDialog = closeDialog;
 
-    function updateDemand(){
-      DemandsService.updateDemand(vm.demand)
-        .then(function(){
+    function deleteDemand() {
+      DemandsService.deleteDemand(vm.demand)
+        .then(function () {
           toastr.success('La demanda fue creada con exito', 'Demanda creada');
         })
-        .catch(function(){
+        .catch(function () {
           toastr.error('Hubo un error al intentar crear la demanda!', 'Error!');
         });
       $mdDialog.hide();
     }
-    function closeDialog(){
+
+    function closeDialog() {
       $mdDialog.cancel();
     }
   }

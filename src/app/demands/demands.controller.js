@@ -28,16 +28,6 @@
 			});
 		}
 
-    function openCreateDialogEdit($event){
-      $mdDialog.show({
-        controller: 'UpdateDemandController',
-        controllerAs: 'vm',
-        templateUrl: 'app/demands/update/update_demand.html',
-        targetEvent: $event,
-        clickOutsideToClose:true
-      });
-    }
-
 		loadDemands();
 	}
 })();
