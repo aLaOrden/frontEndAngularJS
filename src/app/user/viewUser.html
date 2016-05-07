@@ -56,4 +56,23 @@
 			</md-content>
 		</md-card-content>
 	</md-card>
+  <md-card>
+    <md-toolbar class="md-whiteframe-4dp md-hue-1">
+      <div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
+        <span flex/>
+        <span>
+          <h2>Mis ofertas</h2>
+        </span>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <ul>
+        <li>
+          Oferta 1
+          <md-button class="md-primary" ng-click="vm.openEditDialog($event)">Editar</md-button>
+          <md-button class="md-primary" ng-click="vm.openDeleteDialog($event)">Eliminar</md-button>
+        </li>
+      </ul>
+    </md-card-content>
+  </md-card>
 </div>

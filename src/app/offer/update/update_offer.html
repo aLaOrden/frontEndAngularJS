@@ -1,0 +1,48 @@
+<md-dialog aria-label="Editar oferta">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Editar oferta</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+        <md-icon md-svg-icon="close" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <form name="createForm" novalidate>
+    <md-dialog-content>
+      <md-input-container>
+        <label>Titulo actual</label>
+        <input >
+          <!-- Es opcional cambiarlo -->
+        </md-input-container>
+      <md-input-container>
+        <label>Descripción actual</label>
+        <input >
+          <!-- Es opcional cambiarlo -->
+        </md-input-container>
+      <md-content layout="row" flex>
+        <md-input-container class="md-block" flex>
+          <label>Latitud actual</label>
+          <input ng-model="vm.profile.latitude" type="text" required><!-- Es opcional cambiarlo -->
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label>Longitud actual</label>
+          <input ng-model="vm.profile.longitude" type="text" required><!-- Es opcional cambiarlo -->
+        </md-input-container>
+      </md-content>
+      <md-input-container>
+        <label>Precio actual</label>
+        <input >
+          <!-- Es opcional cambiarlo -->
+        </md-input-container>
+      <md-input-container class="md-block">
+        <label>Fecha máxima actual</label>
+        <input >
+          <!-- Es opcional cambiarlo -->
+        </md-input-container>
+
+      <md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
+      <md-button ng-click="vm.updateOffer()" class="md-primary" >Guardar</md-button>
+    </md-dialog-content>
+  </form>
+</md-dialog>
