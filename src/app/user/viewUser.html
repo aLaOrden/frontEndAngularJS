@@ -6,7 +6,10 @@
 				<span flex/>
 				<span>
 					<h2>{{vm.profile.firstName + " " + vm.profile.lastName}}</h2>
-					<h3>{{vm.profile.username}}</h3>
+					<h3>
+            {{vm.profile.username}}
+            <md-button class="md-primary" ng-click="vm.openEditProfileDialog($event)">Editar perfil</md-button>
+          </h3>
 				</span>
 			</div>
 			<md-button class="md-fab md-fab-bottom-right" aria-label="Favorite">

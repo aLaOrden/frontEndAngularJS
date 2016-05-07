@@ -11,6 +11,7 @@
 
     vm.openEditDialog = openEditDialog;
     vm.openDeleteDialog = openDeleteDialog;
+    vm.openEditProfileDialog = openEditProfileDialog;
 
 		function loadProfile(){
 			UserService.getUserByID(1)
@@ -32,6 +33,15 @@
         controller: 'DeleteOfferController',
         controllerAs: 'vm',
         templateUrl: 'app/offer/delete/delete_offer.html',
+        targetEvent: $event,
+        clickOutsideToClose:true
+      });
+    }
+    function openEditProfileDialog($event){
+      $mdDialog.show({
+        controller: 'DeleteOfferController',
+        controllerAs: 'vm',
+        templateUrl: 'app/user/edit/edit_profile.html',
         targetEvent: $event,
         clickOutsideToClose:true
       });
