@@ -6,38 +6,84 @@
 		.controller('ViewUserController', ViewUserController);
 
 	/** @ngInject */
-	function ViewUserController(UserService, $mdDialog) {
+	function ViewUserController(UserService, $location, toastr, $mdDialog) {
 		var vm = this;
-
-    vm.openEditDialog = openEditDialog;
-    vm.openDeleteDialog = openDeleteDialog;
-
-		function loadProfile(){
-			UserService.getUserByID(1)
+		
+		vm.openEditDemandDialog = openEditDemandDialog;
+		vm.openDeleteDemandDialog = openDeleteDemandDialog;
+		vm.openEditOfferDialog = openEditOfferDialog;
+		vm.openDeleteOfferDialog = openDeleteOfferDialog;
+		
+		
+		function loadProfile(profileID){
+			UserService.getUserByID(profileID)
 				.then(function(profile){
 					vm.profile = profile;
 				});
 		}
-    function openEditDialog($event){
-      $mdDialog.show({
-        controller: 'UpdateOfferController',
-        controllerAs: 'vm',
-        templateUrl: 'app/offer/update/update_offer.html',
-        targetEvent: $event,
-        clickOutsideToClose:true
-      });
-    }
-    function openDeleteDialog($event){
-      $mdDialog.show({
-        controller: 'DeleteOfferController',
-        controllerAs: 'vm',
-        templateUrl: 'app/offer/delete/delete_offer.html',
-        targetEvent: $event,
-        clickOutsideToClose:true
-      });
-    }
+		function openEditOfferDialog($event){
+			$mdDialog.show({
+				controller: 'UpdateOfferController',
+				controllerAs: 'vm',
+				templateUrl: 'app/offer/update/update_offer.html',
+				targetEvent: $event,
+				clickOutsideToClose:true
+			});
+		}
+		function openDeleteOfferDialog($event){
+			$mdDialog.show({
+				controller: 'DeleteOfferController',
+				controllerAs: 'vm',
+				templateUrl: 'app/offer/delete/delete_offer.html',
+				targetEvent: $event,
+				clickOutsideToClose:true
+			});
+		}
+		
+		function openEditDemandDialog($event, demandID){
+			$mdDialog.show({
+				controller: 'UpdateDemandController',
+				controllerAs: 'vm',
+				templateUrl: 'app/demands/update/update_demand.html',
+				targetEvent: $event,
+				clickOutsideToClose:true,
+				locals: {
+					demandID: demandID
+				}
+			})
+			.finally(loadProfile);
+		}
 
-
-    loadProfile();
+		function openDeleteDemandDialog($event, demandID){
+			$mdDialog.show({
+				controller: 'DeleteDemandController',
+				controllerAs: 'vm',
+				templateUrl: 'app/demands/delete/delete_demand.html',
+				targetEvent: $event,
+				clickOutsideToClose:true,
+				locals: {
+					demandID: demandID
+				}
+			})
+			.finally(loadProfile);
+		}
+		
+		function detectProfile(){
+			if($location.search().id){
+				var profileID = $location.search().id;
+				loadProfile(profileID);
+			}
+			else{
+				try{
+					var profileID = JSON.parse(sessionStorage.user).id;
+					loadProfile(profileID);
+				}
+				catch(err){
+					toastr.error('Hubo un error al cargar los datos del usuario!', 'Error!');
+				}
+			}
+		}
+		
+		detectProfile();
 	}
 })();

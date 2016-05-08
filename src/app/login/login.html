@@ -6,24 +6,36 @@
 			</h2>
 		</div>
 	</md-toolbar>
-
+	<form name="loginForm" novalidate>
 	<md-card layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
 		<md-card-content>
-			<md-input-container class="md-block">
-				<label>Nombre de usuario</label>
-				<input ng-model="vm.userData.username">
-			</md-input-container>
+
+
+				<md-input-container  class="md-block" >
+					<label>Nombre de usuario</label>
+
+					<input name="username" id="username" ng-model="vm.userData.username" type="text" ng-required="true">
+					<div ng-messages="loginForm.username.$error" ng-if="loginForm.username.$touched">
+						<div ng-message="required">Por favor ingrese su nombre de usuario.</div>
+					</div>
+				</md-input-container>
+
+
 
 			<md-input-container class="md-block">
 				<label>Contraseña</label>
-				<input ng-model="vm.userData.password" type="password">
+				<input name="password" id="password" ng-model="vm.userData.password"  type="password" ng-required="true" minlength="5">
+				<div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+						<div ng-message="required">Por favor ingrese su contraseña.</div>
+						<div ng-message="minlength">Su contraseña debe tener mínimo 5 caracteres.</div>
+				</div>
 			</md-input-container>
 			<md-checkbox md-no-ink="" aria-label="¿Recordarte?" ng-model="vm.userData.remember" >
 				¿Recordarme?
 			</md-checkbox>
 
 			<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
-				<md-button ng-click="vm.login()" class="md-raised md-primary">Iniciar</md-button>
+				<md-button ng-click="vm.login()" ng-disabled="loginForm.$invalid" class="md-raised md-primary">Iniciar</md-button>
 			</section>
 
 			<section>
@@ -56,5 +68,5 @@
 			</section>
 		</md-card-content>
 	</md-card>
-
+	</form>
 </div>
