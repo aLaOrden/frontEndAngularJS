@@ -6,14 +6,14 @@
     .controller('DeleteDemandController', DeleteDemandController);
 
   /** @ngInject */
-  function DeleteDemandController(DemandsService,$mdDialog,toastr) {
+  function DeleteDemandController(DemandsService,$mdDialog,toastr,demandID) {
     var vm = this;
 
     vm.deleteDemand = deleteDemand;
     vm.closeDialog = closeDialog;
 
     function deleteDemand() {
-      DemandsService.deleteDemand(vm.demand)
+      DemandsService.deleteDemand(demandID)
         .then(function () {
           toastr.success('La demanda fue creada con exito', 'Demanda creada');
         })

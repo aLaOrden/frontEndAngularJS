@@ -69,13 +69,13 @@
 
     </md-toolbar>
     <md-card-content>
-      <ul>
-        <li>
-          Demanda 1
-          <md-button class="md-primary" ng-click="vm.openEditDialog($event)">Editar</md-button>
-          <md-button class="md-primary" ng-click="vm.openDeleteDialog($event)">Eliminar</md-button>
-        </li>
-      </ul>
+		<md-list flex>
+			<md-list-item ng-repeat="demand in vm.profile.demands">
+				<p>{{ demand.id + " - " +demand.name }}</p>
+				<md-button class="md-primary" ng-click="vm.openEditDemandDialog($event, demand.id)">Editar</md-button>
+				<md-button class="md-primary" ng-click="vm.openDeleteDemandDialog($event, demand.id)">Eliminar</md-button>
+			</md-list-item>
+		</md-list>
     </md-card-content>
   </md-card>
 </div>

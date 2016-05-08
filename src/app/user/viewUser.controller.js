@@ -8,35 +8,43 @@
 	/** @ngInject */
 	function ViewUserController(UserService, $mdDialog) {
 		var vm = this;
-    vm.openEditDialog = openEditDialog;
-    vm.openDeleteDialog = openDeleteDialog;
+    vm.openEditDemandDialog = openEditDemandDialog;
+    vm.openDeleteDemandDialog = openDeleteDemandDialog;
 
 
-		function loadProfile(){
-			UserService.getUserByID(1)
-				.then(function(profile){
-					vm.profile = profile;
-				});
-		}
+	function loadProfile(){
+		UserService.getUserByID(1)
+			.then(function(profile){
+				vm.profile = profile;
+			});
+	}
 
-    function openEditDialog($event){
+    function openEditDemandDialog($event, demandID){
       $mdDialog.show({
         controller: 'UpdateDemandController',
         controllerAs: 'vm',
         templateUrl: 'app/demands/update/update_demand.html',
         targetEvent: $event,
-        clickOutsideToClose:true
-      });
+        clickOutsideToClose:true,
+		locals: {
+			demandID: demandID
+        }
+      })
+	  .finally(loadProfile);
     }
 
-    function openDeleteDialog($event){
+    function openDeleteDemandDialog($event, demandID){
       $mdDialog.show({
-        controller: 'UpdateDemandController',
+        controller: 'DeleteDemandController',
         controllerAs: 'vm',
         templateUrl: 'app/demands/delete/delete_demand.html',
         targetEvent: $event,
-        clickOutsideToClose:true
-      });
+        clickOutsideToClose:true,
+		locals: {
+			demandID: demandID
+        }
+      })
+	  .finally(loadProfile);
     }
 
 		loadProfile();
