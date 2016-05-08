@@ -34,10 +34,12 @@
 		}
 		
 		function createOffer(offer){
+			offer.deadline = offer.deadline.getTime();
 			return OfferResource.create(offer).$promise;
 		}
 		
 		function updateOffer(offer){
+			offer.deadline = offer.deadline.getTime();
 			return OfferResource.update(offer).$promise;
 		}
 		

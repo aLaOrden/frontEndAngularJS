@@ -6,26 +6,35 @@
     .controller('UpdateOfferController', UpdateOfferController);
 
   /** @ngInject */
-  function UpdateOfferController(OfferService, $mdDialog, toastr) {
+  function UpdateOfferController(OfferService, $mdDialog, toastr, offerID) {
     var vm = this;
 
-    vm.offer = {state: "activo"};
     vm.updateOffer = updateOffer;
     vm.closeDialog = closeDialog;
 
     function updateOffer(){
       OfferService.updateOffer(vm.offer)
         .then(function(){
-          toastr.success('La oferta fue creada con exito', 'Oferta creada');
+          toastr.success('La oferta fue actualizada con exito', 'Oferta actualizada');
         })
         .catch(function(){
-          toastr.error('Hubo un error al intentar crear la oferta!', 'Error!');
+          toastr.error('Hubo un error al intentar actualizar la oferta!', 'Error!');
         });
       $mdDialog.hide();
     }
 
-    function closeDialog(){
-      $mdDialog.cancel();
+   function loadOffer(){
+		OfferService.getOffersByID(offerID)
+			.then(function(offer){
+				offer.deadline = new Date(offer.deadline);
+				vm.offer = offer;
+			});
     }
+	
+    function closeDialog(){
+		$mdDialog.cancel();
+    }
+	
+	loadOffer();
   }
 })();

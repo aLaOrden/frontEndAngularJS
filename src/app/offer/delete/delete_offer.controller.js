@@ -6,20 +6,19 @@
     .controller('DeleteOfferController', DeleteOfferController);
 
   /** @ngInject */
-  function DeleteOfferController(OfferService, $mdDialog, toastr) {
+  function DeleteOfferController(OfferService, $mdDialog, toastr, offerID) {
     var vm = this;
 
-    vm.offer = {state: "activo"};
     vm.deleteOffer = deleteOffer;
     vm.closeDialog = closeDialog;
 
     function deleteOffer(){
-      OfferService.deleteOffer(vm.offer)
+      OfferService.deleteOffer(offerID)
         .then(function(){
-          toastr.success('La oferta fue creada con exito', 'Oferta creada');
+          toastr.success('La oferta fue eliminada con exito', 'Oferta creada');
         })
         .catch(function(){
-          toastr.error('Hubo un error al intentar crear la oferta!', 'Error!');
+          toastr.error('Hubo un error al intentar eliminar la oferta!', 'Error!');
         });
       $mdDialog.hide();
     }
