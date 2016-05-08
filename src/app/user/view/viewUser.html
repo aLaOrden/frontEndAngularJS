@@ -53,4 +53,26 @@
 			</md-content>
 		</md-card-content>
 	</md-card>
+  <md-card>
+    <md-toolbar class="md-whiteframe-4dp md-hue-1">
+      <div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
+        <div layout="column" layout-align="end start">
+          <span flex/>
+            <span>
+              <h2>Mis demandas</h2>
+            </span>
+        </div>
+      </div>
+
+    </md-toolbar>
+    <md-card-content>
+		<md-list flex>
+			<md-list-item ng-repeat="demand in vm.profile.demands">
+				<p>{{ demand.id + " - " +demand.name }}</p>
+				<md-button class="md-primary" ng-click="vm.openEditDemandDialog($event, demand.id)">Editar</md-button>
+				<md-button class="md-primary" ng-click="vm.openDeleteDemandDialog($event, demand.id)">Eliminar</md-button>
+			</md-list-item>
+		</md-list>
+    </md-card-content>
+  </md-card>
 </div>

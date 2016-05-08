@@ -39,7 +39,8 @@
         .icon("create", "assets/svg/create.svg", 24)
         .icon("shoping_car", "assets/svg/shoping_car.svg", 24)
         .icon("move_to_inbox", "assets/svg/move_to_inbox.svg", 24)
-        .icon("person_add", "assets/svg/person_add.svg", 24);
+        .icon("person_add", "assets/svg/person_add.svg", 24)
+		.icon("person_outline", "assets/svg/person_outline.svg", 24);
 
 	$mdThemingProvider.theme('default')
 		.primaryPalette('indigo')

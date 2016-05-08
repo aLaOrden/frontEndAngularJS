@@ -5,7 +5,7 @@
 		.module('ingeSoftIi')
 		.controller('LoginController', LoginController);
 
-	function LoginController(LoginService, $location, toastr) {
+	function LoginController(LoginService, $location, toastr, $rootScope) {
 		var vm = this;
 		
 		vm.userData = {};
@@ -19,6 +19,8 @@
 						toastr.error('Nombre de usuario o contraseña incorrectas!', 'Error!');
 					}
 					else{
+						sessionStorage.user = JSON.stringify(auth);
+						$rootScope.$emit("login");
 						redirect('/offer');
 					}
 				})
@@ -30,5 +32,14 @@
 		function redirect(location){
 			$location.url(location);
 		}
+		
+		function detectSession(){
+			if($location.url() === "/logout"){
+				sessionStorage.removeItem("user");
+				$rootScope.$emit("logout");
+			}
+		}
+		detectSession()
+		
 	}
 })();
