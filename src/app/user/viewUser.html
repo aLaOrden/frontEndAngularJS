@@ -1,18 +1,15 @@
 ﻿<div>
 	<md-toolbar class="md-xl md-whiteframe-4dp md-hue-1">
-		<div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
-			<img flex="15" class="userProfile" ng-src="{{vm.profile.avatarLink || 'assets/images/user.png'}}"/>
+		<div layout="row" layout-xs="column" layout-align-xs="space-around start" layout-fill class="md-toolbar-tools-bottom inset">
+			<img class="user-avatar" ng-src="{{vm.profile.avatarLink || 'assets/images/user.png'}}"/>
 			<div layout="column" layout-align="end start">
-				<span flex/>
-				<span>
-					<h2>{{vm.profile.firstName + " " + vm.profile.lastName}}</h2>
-					<h3>{{vm.profile.username}}</h3>
-				</span>
+				<div>{{vm.profile.firstName + " " + vm.profile.lastName}}</div>
+				<div>{{vm.profile.username}}</div>
 			</div>
-			<md-button class="md-fab md-fab-bottom-right" aria-label="Favorite">
-				<md-icon md-svg-icon="star_fill"></md-icon>
-			</md-button>
 		</div>
+		<md-button class="md-fab md-fab-bottom-right fab-border" aria-label="Favorite">
+			<md-icon md-svg-icon="star_fill"></md-icon>
+		</md-button>
 	</md-toolbar>
 	<md-card>
 		<md-card-content>
@@ -53,7 +50,73 @@
 						<input value=" " readonly/>
 					</md-input-container>
 				</md-content>
+				<md-button class="md-primary" ng-click="vm.openEditProfileDialog($event)">Editar perfil</md-button>
 			</md-content>
 		</md-card-content>
 	</md-card>
+  <md-card>
+    <md-toolbar class="md-whiteframe-4dp md-hue-1">
+      <div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
+        <div layout="column" layout-align="end start">
+          <span flex/>
+            <span>
+              <h2>Mis demandas</h2>
+            </span>
+        </div>
+      </div>
+
+    </md-toolbar>
+    <md-card-content>
+		<md-list flex>
+			<md-list-item ng-repeat="demand in vm.profile.demands">
+				<p>{{ demand.id + " - " +demand.name }}</p>
+				<md-button class="md-primary" ng-click="vm.openEditDemandDialog($event, demand.id)">Editar</md-button>
+				<md-button class="md-primary" ng-click="vm.openDeleteDemandDialog($event, demand.id)">Eliminar</md-button>
+			</md-list-item>
+		</md-list>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-toolbar class="md-whiteframe-4dp md-hue-1">
+      <div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
+        <div layout="column" layout-align="end start">
+          <span flex/>
+            <span>
+              <h2>Mis ofertas</h2>
+            </span>
+        </div>
+      </div>
+
+    </md-toolbar>
+    <md-card-content>
+		<md-list flex>
+			<md-list-item ng-repeat="offer in vm.profile.offers">
+				<p>{{ offer.id + " - " +offer.name }}</p>
+				<md-button class="md-primary" ng-click="vm.openEditOfferDialog($event, offer.id)">Editar</md-button>
+				<md-button class="md-primary" ng-click="vm.openDeleteOfferDialog($event, offer.id)">Eliminar</md-button>
+			</md-list-item>
+		</md-list>
+    </md-card-content>
+  </md-card>
+
+
+  <md-card>
+    <md-toolbar class="md-whiteframe-4dp md-hue-1">
+      <div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
+        <span flex/>
+        <span>
+          <h2>Mis favoritos</h2>
+        </span>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <ul>
+        <li>
+          favorito 1
+          <md-button class="md-primary" ng-click="vm.openEditDialog($event)">Editar</md-button>
+          <md-button class="md-primary" ng-click="vm.openDeleteDialog($event)">Eliminar</md-button>
+        </li>
+      </ul>
+    </md-card-content>
+  </md-card>
 </div>

@@ -34,6 +34,11 @@
       name: "Iniciar sesión",
       img: "person_add",
       url: "/login"
+    },
+    {
+      name: "Cerrar sesión",
+      img: "person_outline",
+      url: "/logout"
     }
   ]);
 

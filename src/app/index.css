@@ -42,10 +42,6 @@ html {
   height: 100%;
 }
 
-.fill-height {
-	height: 100%
-}
-
 md-content.md-default-theme {
   background-color: #eee;
 }
@@ -112,8 +108,19 @@ md-content.md-default-theme {
   background-color: #1884BB;
 }
 
-.userProfile {
-	margin: 10px;
+.user-avatar {
+    border-radius: 99%;
+}
+@media (max-width: 600px) {
+	.user-avatar {
+		border-radius: 99%;
+		width: 64px;
+		height: 64px;
+	}
+}
+
+.fab-border {
+	bottom: -33px !important;
 }
 
 .md-xl {
@@ -126,11 +133,5 @@ md-content.md-default-theme {
 	position: absolute;
     left: 39px;
     top: 20px;
-	z-index: 999;
-}
-
-md-input-container > md-select {
-    margin: 0;
-	margin-top: 1.5em;
-	margin-left: 2.2em;
+	z-index: 10;
 }

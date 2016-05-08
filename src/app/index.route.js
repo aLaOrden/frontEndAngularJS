@@ -22,6 +22,11 @@
       controller: 'LoginController',
       controllerAs: 'vm'
     })
+	.when('/logout', {
+      templateUrl: 'app/login/login.html',
+      controller: 'LoginController',
+      controllerAs: 'vm'
+    })
     .when('/home', {
       templateUrl: 'app/home/home.html',
       controller: 'HomeController',

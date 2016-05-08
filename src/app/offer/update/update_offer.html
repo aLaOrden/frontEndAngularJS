@@ -1,0 +1,68 @@
+<md-dialog aria-label="Editar oferta">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Editar oferta</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+        <md-icon md-svg-icon="close" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <form name="createForm" novalidate>
+    <md-dialog-content>
+		<md-input-container class="md-block">
+			<label>Titulo</label>
+			<input name="title" id="title" ng-model="vm.offer.title" ng-required="true" md-maxlength="50" md-minlength="5">
+			<div ng-messages="createForm.title.$error" ng-if="createForm.title.$touched">
+				<div ng-message="required">Por favor ingrese el titulo de la oferta.</div>
+			</div>
+		</md-input-container>
+		<md-input-container class="md-block">
+			<label>Descripción</label>
+			<input name="description" id="description" ng-model="vm.offer.description" ng-required="true">
+			<div ng-messages="createForm.description.$error" ng-if="createForm.description.$touched">
+				<div ng-message="required">Por favor ingrese la descripción de la oferta.</div>
+			</div>
+		</md-input-container>
+
+		<md-content layout="row" flex>
+
+			<md-input-container class="md-block" flex>
+				<label>Latitud</label>
+				<input name="latitude" id="latitude" ng-model="vm.offer.latitude" type="text" ng-required="true">
+					<div ng-messages="createForm.latitude.$error" ng-if="createForm.latitude.$touched">
+						<div ng-message="required">Por favor ingrese la latitud de la ubicación.</div>
+					</div>
+			</md-input-container>
+
+			<md-input-container class="md-block" flex>
+				<label>Longitud</label>
+				<input name="longitude" id="longitude" ng-model="vm.offer.longitude" type="text" ng-required="true">
+					<div ng-messages="createForm.longitude.$error" ng-if="createForm.longitude.$touched">
+						<div ng-message="required">Por favor ingrese la longitud de la ubicación.</div>
+					</div>
+			</md-input-container>
+		</md-content>
+
+		<md-input-container class="md-block">
+			<label>Precio</label>
+			<input name="price" id="price" ng-model="vm.offer.price" type="number" ng-required="true">
+			<div ng-messages="createForm.price.$error" ng-if="createForm.price.$touched">
+				<div ng-message="required">Por favor ingrese el precio de la oferta.</div>
+			</div>
+		</md-input-container>
+		<div class="md-block">
+			<md-datepicker name="deadline" ng-model="vm.offer.deadline" md-placeholder="Fecha máxima" required></md-datepicker>
+			</br>
+			<md-input-container>
+				<div class="validation-messages" ng-messages="createForm.deadline.$error" ng-if="createForm.deadline.$touched">
+					<div ng-message="required">Por favor ingrese fecha máxima de la oferta.</div>
+				</div>
+			</md-input-container>
+		</div>
+
+      <md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
+      <md-button ng-click="vm.updateOffer()" class="md-primary">Actualizar</md-button>
+    </md-dialog-content>
+  </form>
+</md-dialog>

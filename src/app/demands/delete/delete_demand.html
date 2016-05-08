@@ -1,0 +1,16 @@
+<div>
+  <md-toolbar clas="md-tall md-whiteframe-4dp md-hue-1">
+    <div class="md-toolbar-tools">
+      <h2>¿Desea eliminar la demanda?</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+        <md-icon md-svg-icon="close" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content>
+    <md-button ng-click="vm.deleteDemand()" class="md-primary">Eliminar</md-button>
+    <md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
+  </md-content>
+
+</div>
