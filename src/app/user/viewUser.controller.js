@@ -6,16 +6,33 @@
 		.controller('ViewUserController', ViewUserController);
 	
 	/** @ngInject */
-	function ViewUserController(UserService) {
+	function ViewUserController(UserService, $location, toastr) {
 		var vm = this;
 		
-		function loadProfile(){
-			UserService.getUserByID(1)
+		function loadProfile(profileID){
+			UserService.getUserByID(profileID)
 				.then(function(profile){
 					vm.profile = profile;
 				});
 		}
 		
-		loadProfile();
+		function detectProfile(){
+			if($location.search().id){
+				var profileID = $location.search().id;
+				loadProfile(profileID);
+			}
+			else{
+				try{
+					var profileID = JSON.parse(sessionStorage.user).id;
+					loadProfile(profileID);
+				}
+				catch(err){
+					toastr.error('Hubo un error al cargar los datos del usuario!', 'Error!');
+				}
+			}
+		}
+		
+		detectProfile();
+		
 	}
 })();
