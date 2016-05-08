@@ -21,23 +21,33 @@
 					vm.profile = profile;
 				});
 		}
-		function openEditOfferDialog($event){
+		
+		function openEditOfferDialog($event, offerID){
 			$mdDialog.show({
 				controller: 'UpdateOfferController',
 				controllerAs: 'vm',
 				templateUrl: 'app/offer/update/update_offer.html',
 				targetEvent: $event,
-				clickOutsideToClose:true
-			});
+				clickOutsideToClose:true,
+				locals: {
+					offerID: offerID
+				}
+			})
+			.finally(detectProfile);
 		}
-		function openDeleteOfferDialog($event){
+		
+		function openDeleteOfferDialog($event, offerID){
 			$mdDialog.show({
 				controller: 'DeleteOfferController',
 				controllerAs: 'vm',
 				templateUrl: 'app/offer/delete/delete_offer.html',
 				targetEvent: $event,
-				clickOutsideToClose:true
-			});
+				clickOutsideToClose:true,
+				locals: {
+					offerID: offerID
+				}
+			})
+			.finally(detectProfile);
 		}
 		
 		function openEditDemandDialog($event, demandID){
@@ -51,7 +61,7 @@
 					demandID: demandID
 				}
 			})
-			.finally(loadProfile);
+			.finally(detectProfile);
 		}
 
 		function openDeleteDemandDialog($event, demandID){
@@ -65,7 +75,7 @@
 					demandID: demandID
 				}
 			})
-			.finally(loadProfile);
+			.finally(detectProfile);
 		}
 		
 		function detectProfile(){

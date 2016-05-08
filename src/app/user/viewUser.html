@@ -77,20 +77,24 @@
   </md-card>
   <md-card>
     <md-toolbar class="md-whiteframe-4dp md-hue-1">
-      <span flex/>
-        <span>
-          <h2>Mis ofertas</h2>
-        </span>
+      <div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
+        <div layout="column" layout-align="end start">
+          <span flex/>
+            <span>
+              <h2>Mis ofertas</h2>
+            </span>
+        </div>
       </div>
+
     </md-toolbar>
     <md-card-content>
-      <ul>
-        <li>
-          Oferta 1
-          <md-button class="md-primary" ng-click="vm.openEditDialog($event)">Editar</md-button>
-          <md-button class="md-primary" ng-click="vm.openDeleteDialog($event)">Eliminar</md-button>
-        </li>
-      </ul>
+		<md-list flex>
+			<md-list-item ng-repeat="offer in vm.profile.offers">
+				<p>{{ offer.id + " - " +offer.name }}</p>
+				<md-button class="md-primary" ng-click="vm.openEditOfferDialog($event, offer.id)">Editar</md-button>
+				<md-button class="md-primary" ng-click="vm.openDeleteOfferDialog($event, offer.id)">Eliminar</md-button>
+			</md-list-item>
+		</md-list>
     </md-card-content>
   </md-card>
 </div>
