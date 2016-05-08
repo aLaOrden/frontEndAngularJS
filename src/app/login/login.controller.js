@@ -19,7 +19,7 @@
 						toastr.error('Nombre de usuario o contraseña incorrectas!', 'Error!');
 					}
 					else{
-						sessionStorage.user = JSON.stringify(auth);
+						sessionStorage.user = angular.toJson(auth);
 						$rootScope.$emit("login");
 						redirect('/offer');
 					}

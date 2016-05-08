@@ -20,13 +20,14 @@
 		}
 		
 		function detectProfile(){
+			var profileID;
 			if($location.search().id){
-				var profileID = $location.search().id;
+				profileID = $location.search().id;
 				loadProfile(profileID);
 			}
 			else{
 				try{
-					var profileID = JSON.parse(sessionStorage.user).id;
+					profileID = angular.fromJson(sessionStorage.user).id;
 					loadProfile(profileID);
 				}
 				catch(err){
