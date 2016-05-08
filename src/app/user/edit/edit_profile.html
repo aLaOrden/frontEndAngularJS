@@ -8,68 +8,45 @@
       </md-button>
     </div>
   </md-toolbar>
-  <md-card>
-    <md-card-content>
-      <form name="createForm" novalidate>
-        <md-content class="md-no-momentum">
-          <md-content layout="row">
-            <md-input-container class="md-icon-float md-block" flex>
-              <label>Su actual nombres</label>
-              <md-icon md-svg-icon="account"></md-icon>
-              <input ><!-- Esto es opcional cambiarlo -->
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block" flex>
-              <label>Actuales apellidos</label>
-              <md-icon md-svg-icon=""></md-icon>
-              <input ><!-- Esto es opcional cambiarlo -->
-            </md-input-container>
-          </md-content>
-          <md-input-container class="md-icon-float md-block">
-            <label>Actual correo</label>
-            <md-icon md-svg-icon="email"></md-icon>
-            <input> <!-- Esto es opcional cambiarlo -->
-          </md-input-container>
-          <md-input-container class="md-icon-float md-block">
-            <label>Actual celular</label>
-            <md-icon md-svg-icon="phone"></md-icon>
-            <input> <!-- Esto es opcional cambiarlo -->
-          </md-input-container>
-          <md-input-container class="md-icon-float md-block">
-            <label>Actual genero</label>
-            <md-icon md-svg-icon="gender"></md-icon>
-            <md-select ng-model="vm.profile.gender" required>
-              <md-option ng-value="gender.id" ng-repeat="gender in vm.genders">
-                {{gender.name}}
-              </md-option>
-            </md-select>
-          </md-input-container>
-          <md-input-container class="md-icon-float md-block">
-            <label>Actual Dirección</label>
-            <md-icon md-svg-icon="map"></md-icon>
-            <input> <!-- Esto es opcional cambiarlo -->
-          </md-input-container>
-          <md-content layout="row">
-            <md-input-container class="md-icon-float md-block" flex>
-              <label>Actual nombre de usuario</label>
-              <md-icon md-svg-icon="account"></md-icon>
-              <input> <!-- Esto es opcional cambiarlo -->
-            </md-input-container>
-            <md-input-container class="md-icon-float md-block" flex>
-              <label>Actual contraseña</label>
-              <md-icon md-svg-icon="key"></md-icon>
-              <input> <!-- Esto es opcional cambiarlo -->
-            </md-input-container>
-          </md-content>
-          <!--
-                    <md-content layout="row">
-                        <md-checkbox ng-model="vm.profile.admin" ng-false-value="false">
-                        <span>¿Administrador?</span>
-                    </md-content>
-                    -->
-
-          <md-button class="md-raised" ng-disabled="createForm.$invalid">Guardar cambios</md-button>
-        </md-content>
-      </form>
-    </md-card-content>
-  </md-card>
+  <form name="createForm" novalidate>
+	<md-content class="md-no-momentum">
+	  <md-content layout="row">
+		<md-input-container class="md-icon-float md-block" flex>
+		  <label>Su actual nombres</label>
+		  <md-icon md-svg-icon="account"></md-icon>
+		  <input ng-model="vm.profile.username" type="text">
+		</md-input-container>
+		<md-input-container class="md-icon-float md-block" flex>
+		  <label>Actuales apellidos</label>
+		  <md-icon md-svg-icon=""></md-icon>
+		  <input ng-model="vm.profile.lastName" type="text">
+		</md-input-container>
+	  </md-content>
+	  <md-input-container class="md-icon-float md-block">
+		<label>Actual correo</label>
+		<md-icon md-svg-icon="email"></md-icon>
+		<input ng-model="vm.profile.email" type="text">
+	  </md-input-container>
+	  <md-input-container class="md-icon-float md-block">
+		<label>Actual celular</label>
+		<md-icon md-svg-icon="phone"></md-icon>
+		<input ng-model="vm.profile.phone" type="text">
+	  </md-input-container>
+	  <md-input-container class="md-icon-float md-block">
+		<label>Actual genero</label>
+		<md-icon md-svg-icon="gender"></md-icon>
+		<md-select ng-model="vm.profile.gender" required>
+		  <md-option ng-value="gender.id" ng-repeat="gender in vm.genders">
+			{{gender.name}}
+		  </md-option>
+		</md-select>
+	  </md-input-container>
+	  <md-input-container class="md-icon-float md-block">
+		<label>Actual Dirección</label>
+		<md-icon md-svg-icon="map"></md-icon>
+		<input ng-model="vm.profile.address" type="text">
+	  </md-input-container>
+	  <md-button class="md-raised" ng-click="vm.updateUser()" ng-disabled="createForm.$invalid">Guardar cambios</md-button>
+	</md-content>
+  </form>
 </md-dialog>

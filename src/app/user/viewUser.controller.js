@@ -82,12 +82,16 @@
 		
 		function openEditProfileDialog($event){
 			$mdDialog.show({
-				controller: 'DeleteOfferController',
+				controller: 'EditProfileController',
 				controllerAs: 'vm',
 				templateUrl: 'app/user/edit/edit_profile.html',
 				targetEvent: $event,
-				clickOutsideToClose:true
-			});
+				clickOutsideToClose:true,
+				locals: {
+					userID: vm.profile.id
+				}
+			})
+			.finally(detectProfile);
 		}
 		
 		function detectProfile(){
