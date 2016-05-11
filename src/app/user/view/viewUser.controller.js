@@ -8,9 +8,13 @@
 	/** @ngInject */
 	function ViewUserController(UserService, $location, toastr, $mdDialog) {
 		var vm = this;
-		
+
 		vm.openEditDemandDialog = openEditDemandDialog;
 		vm.openDeleteDemandDialog = openDeleteDemandDialog;
+		vm.openEditOfferDialog = openEditOfferDialog;
+		vm.openDeleteOfferDialog = openDeleteOfferDialog;
+		vm.openEditProfileDialog = openEditProfileDialog;
+		
 		
 		function loadProfile(profileID){
 			UserService.getUserByID(profileID)
@@ -19,21 +23,32 @@
 				});
 		}
 		
-		function detectProfile(){
-			var profileID;
-			if($location.search().id){
-				profileID = $location.search().id;
-				loadProfile(profileID);
-			}
-			else{
-				try{
-					profileID = angular.fromJson(sessionStorage.user).id;
-					loadProfile(profileID);
+		function openEditOfferDialog($event, offerID){
+			$mdDialog.show({
+				controller: 'UpdateOfferController',
+				controllerAs: 'vm',
+				templateUrl: 'app/offer/update/update_offer.html',
+				targetEvent: $event,
+				clickOutsideToClose:true,
+				locals: {
+					offerID: offerID
 				}
-				catch(err){
-					toastr.error('Hubo un error al cargar los datos del usuario!', 'Error!');
+			})
+			.finally(detectProfile);
+		}
+		
+		function openDeleteOfferDialog($event, offerID){
+			$mdDialog.show({
+				controller: 'DeleteOfferController',
+				controllerAs: 'vm',
+				templateUrl: 'app/offer/delete/delete_offer.html',
+				targetEvent: $event,
+				clickOutsideToClose:true,
+				locals: {
+					offerID: offerID
 				}
-			}
+			})
+			.finally(detectProfile);
 		}
 		
 		function openEditDemandDialog($event, demandID){
@@ -47,8 +62,9 @@
 					demandID: demandID
 				}
 			})
-			.finally(loadProfile);
+			.finally(detectProfile);
 		}
+		
 
 		function openDeleteDemandDialog($event, demandID){
 			$mdDialog.show({
@@ -61,7 +77,37 @@
 					demandID: demandID
 				}
 			})
-			.finally(loadProfile);
+			.finally(detectProfile);
+		}
+		
+		function openEditProfileDialog($event){
+			$mdDialog.show({
+				controller: 'EditProfileController',
+				controllerAs: 'vm',
+				templateUrl: 'app/user/edit/edit_profile.html',
+				targetEvent: $event,
+				clickOutsideToClose:true,
+				locals: {
+					userID: vm.profile.id
+				}
+			})
+			.finally(detectProfile);
+		}
+		
+		function detectProfile(){
+			if($location.search().id){
+				var profileID = $location.search().id;
+				loadProfile(profileID);
+			}
+			else{
+				try{
+					var profileID = JSON.parse(sessionStorage.user).id;
+					loadProfile(profileID);
+				}
+				catch(err){
+					toastr.error('Hubo un error al cargar los datos del usuario!', 'Error!');
+				}
+			}
 		}
 		
 		detectProfile();

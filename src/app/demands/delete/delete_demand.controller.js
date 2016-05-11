@@ -15,10 +15,10 @@
     function deleteDemand() {
       DemandsService.deleteDemand(demandID)
         .then(function () {
-          toastr.success('La demanda fue creada con exito', 'Demanda creada');
+          toastr.success('La demanda fue eliminada con exito', 'Demanda creada');
         })
         .catch(function () {
-          toastr.error('Hubo un error al intentar crear la demanda!', 'Error!');
+          toastr.error('Hubo un error al intentar eliminar la demanda!', 'Error!');
         });
       $mdDialog.hide();
     }

@@ -40,6 +40,7 @@
 		}
 		
 		function updateOffer(offer){
+			offer.deadline = offer.deadline.getTime();
 			return OfferResource.update(offer).$promise;
 		}
 		

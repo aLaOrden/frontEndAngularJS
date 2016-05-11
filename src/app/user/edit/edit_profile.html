@@ -1,0 +1,52 @@
+<md-dialog aria-label="Editar perfil">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Editar oferta</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+        <md-icon md-svg-icon="close" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <form name="createForm" novalidate>
+	<md-content class="md-no-momentum">
+	  <md-content layout="row">
+		<md-input-container class="md-icon-float md-block" flex>
+		  <label>Su actual nombres</label>
+		  <md-icon md-svg-icon="account"></md-icon>
+		  <input ng-model="vm.profile.username" type="text">
+		</md-input-container>
+		<md-input-container class="md-icon-float md-block" flex>
+		  <label>Actuales apellidos</label>
+		  <md-icon md-svg-icon=""></md-icon>
+		  <input ng-model="vm.profile.lastName" type="text">
+		</md-input-container>
+	  </md-content>
+	  <md-input-container class="md-icon-float md-block">
+		<label>Actual correo</label>
+		<md-icon md-svg-icon="email"></md-icon>
+		<input ng-model="vm.profile.email" type="text">
+	  </md-input-container>
+	  <md-input-container class="md-icon-float md-block">
+		<label>Actual celular</label>
+		<md-icon md-svg-icon="phone"></md-icon>
+		<input ng-model="vm.profile.phone" type="text">
+	  </md-input-container>
+	  <md-input-container class="md-icon-float md-block">
+		<label>Actual genero</label>
+		<md-icon md-svg-icon="gender"></md-icon>
+		<md-select ng-model="vm.profile.gender" required>
+		  <md-option ng-value="gender.id" ng-repeat="gender in vm.genders">
+			{{gender.name}}
+		  </md-option>
+		</md-select>
+	  </md-input-container>
+	  <md-input-container class="md-icon-float md-block">
+		<label>Actual Dirección</label>
+		<md-icon md-svg-icon="map"></md-icon>
+		<input ng-model="vm.profile.address" type="text">
+	  </md-input-container>
+	  <md-button class="md-raised" ng-click="vm.updateUser()" ng-disabled="createForm.$invalid">Guardar cambios</md-button>
+	</md-content>
+  </form>
+</md-dialog>
