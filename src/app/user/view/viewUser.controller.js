@@ -98,8 +98,10 @@
 			if($location.search().id){
 				var profileID = $location.search().id;
 				loadProfile(profileID);
+				vm.showEdit = false;
 			}
 			else{
+				vm.showEdit = true;
 				try{
 					var profileID = JSON.parse(sessionStorage.user).id;
 					loadProfile(profileID);
