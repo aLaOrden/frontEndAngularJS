@@ -14,7 +14,7 @@
 		vm.closeDialog = closeDialog;
 		vm.selectLocation = selectLocation;
 		vm.selectingLocation = false;
-		vm.mapCenter = { latitude: 45, longitude: -73, idkey: 1 };
+		vm.mapCenter = { latitude: 4.57, longitude: -73.97, idkey: 1 };
 		
 		function createOffer(){
 			OfferService.createOffer(vm.offer)

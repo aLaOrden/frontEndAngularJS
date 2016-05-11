@@ -59,7 +59,7 @@
 					<md-button ng-click="vm.createOffer()" class="md-primary" ng-disabled="createForm.$invalid">Crear</md-button>
 				</div>
 				
-				<div ng-show="vm.selectingLocation">
+				<div ng-if="vm.selectingLocation">
 					<ui-gmap-google-map center='vm.mapCenter' zoom='8'>
 						<ui-gmap-marker	coords='vm.mapCenter' idKey="vm.mapCenter.idkey"></ui-gmap-marker>
 					</ui-gmap-google-map>
