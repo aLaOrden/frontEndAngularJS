@@ -4,6 +4,7 @@
   angular
     .module('ingeSoftIi')
     .constant('backend_url', "http://alaorden-rest.herokuapp.com")
+	.constant('firebase_url', "https://m4zaw7dtd2g.firebaseio-demo.com/")
     .constant('app_menu', [
     {
       name: "Página principal",
