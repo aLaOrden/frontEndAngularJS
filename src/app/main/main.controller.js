@@ -6,7 +6,7 @@
 		.controller('MainController', MainController);
 
 	/** @ngInject */
-	function MainController($mdSidenav,app_menu, $location, $rootScope, $scope, ChatService) {
+	function MainController($mdSidenav,app_menu, $location, $rootScope, $scope) {
 		var vm = this;
 
 		vm.toggleMenu = toggleMenu;
@@ -50,7 +50,5 @@
 			onLogin();
 			onLogout();
 		});
-		
-		console.log(ChatService.getMessages());
 	}
 })();

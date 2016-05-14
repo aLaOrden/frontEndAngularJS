@@ -1,0 +1,33 @@
+﻿<div>
+	<md-toolbar class="md-tall md-whiteframe-4dp md-hue-1">
+		<div class="md-toolbar-tools">
+			<h2>
+				<span>Chat</span>
+			</h2>
+		</div>
+	</md-toolbar>
+	<md-card>
+		<md-card-content>
+			<md-content layout-padding>
+				<md-list flex>
+					<md-subheader class="md-no-sticky">Chat</md-subheader>
+					<md-list-item ng-repeat="message in vm.messages">
+						<i>{{ message.from }}</i>: <p>{{ message.body }}</p>
+					</md-list-item>
+				</md-list>
+			</md-content>
+		</md-card-content>
+	</md-card>
+	
+	<md-card>
+		<md-card-content>
+			<div layout="row" flex>
+				<md-input-container class="md-block" flex>
+					<label>Mensaje</label>
+					<input name="message" id="message" ng-model="vm.message" ng-keypress="vm.sendMessage($event)">
+				</md-input-container>
+				<md-button ng-click="vm.sendMessage()" class="md-primary" ng-disabled="!vm.message">Enviar</md-button>
+			</div>
+		</md-card-content>
+	</md-card>
+</div>
