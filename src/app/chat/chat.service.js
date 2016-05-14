@@ -6,7 +6,7 @@
 		.service('ChatService', ChatService);
 
 	/** @ngInject */
-	function ChatService(firebase_url, $firebaseArray, $firebaseObject) {
+	function ChatService(firebase_url, $firebaseArray) {
 		var chatServer = new Firebase(firebase_url);
 		
 		var service = {

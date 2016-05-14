@@ -6,7 +6,7 @@
 		.controller('ChatController', ChatController);
 
 	/** @ngInject */
-	function ChatController(ChatService, $scope) {
+	function ChatController(ChatService) {
 		var vm = this;
 		
 		vm.sendMessage = sendMessage;
@@ -32,7 +32,7 @@
 		function chatListener(){
 			vm.userMessages = ChatService.getMessagesByUser(fromUser)
 				.on('child_changed',function(childSnapshot) {
-					toUser = childSnapshot.key();
+					var toUser = childSnapshot.key();
 					vm.messages = ChatService.generateChatSession(toUser, fromUser);
 				});
 		}
