@@ -11,12 +11,16 @@
         </md-card>
       </div>
       <div class="inLine">
-        <md-switch ng-model="vm.switch">
-          <p ng-if="vm.switch">Oferta</p>
-          <p ng-if="!vm.switch">Demanda</p>
-        </md-switch>
+        <md-button ng-click="">Buscar</md-button>
       </div>
     </div>
-    <md-button class="md-raised" ng-click="">Buscar</md-button>
+    <div class="inLine">
+      <md-switch ng-model="vm.switch">
+        <p ng-if="vm.switch">Oferta</p>
+        <p ng-if="!vm.switch">Demanda</p>
+      </md-switch>
+    </div>
   </form>
+  <md-button ng-click="">Todas las Ofertas</md-button>
+  <md-button ng-click="">Todas las Demandas</md-button>
 </div>
