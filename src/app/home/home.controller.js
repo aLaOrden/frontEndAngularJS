@@ -5,8 +5,17 @@
 		.module('ingeSoftIi')
 		.controller('HomeController', HomeController);
 
-	function HomeController() {
+	function HomeController($location) {
 		var vm = this;
-		vm.switch = true;
+		vm.offersView = offersView;
+		vm.demandsView = demandsView;
+
+
+    function offersView() {
+      $location.url("/offer");
+    }
+    function demandsView() {
+      $location.url("/demands");
+    }
   }
 })();
