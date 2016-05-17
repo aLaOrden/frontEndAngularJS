@@ -5,9 +5,8 @@
 		.module('ingeSoftIi')
 		.controller('LoginController', LoginController);
 
-	function LoginController(LoginService, $location, toastr, $rootScope) {
+	function LoginController(LoginService, $location, toastr, $rootScope, $mdDialog) {
 		var vm = this;
-		
 		vm.userData = {};
 		vm.login = login;
 		vm.redirect = redirect;
@@ -16,6 +15,7 @@
 			LoginService.makeLogin(vm.userData)
 				.then(function(userInfo){
 					sessionStorage.user = angular.toJson(userInfo);
+					$rootScope.$emit("runChat");
 					$rootScope.$emit("login");
 					redirect('/offer');
 				})
@@ -35,6 +35,7 @@
 		
 		function detectSession(){
 			if($location.url() === "/logout"){
+				$rootScope.$emit("stopChat");
 				sessionStorage.removeItem("user");
 				$rootScope.$emit("logout");
 			}

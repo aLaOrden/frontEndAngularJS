@@ -6,15 +6,12 @@
 		.controller('ChatController', ChatController);
 
 	/** @ngInject */
-	function ChatController(ChatService) {
+	function ChatController(ChatService, $location) {
 		var vm = this;
 		
 		vm.sendMessage = sendMessage;
-		vm.startChat = startChat;
 		
-		var fromUser = angular.fromJson(sessionStorage.user).username;
-		
-		function startChat(toUser){
+		function startChat(toUser, fromUser){
 			vm.messages = ChatService.generateChatSession(fromUser, toUser);
 		}
 		
@@ -22,6 +19,7 @@
 			if(!vm.message || keyEvent && keyEvent.which !== 13){
 				return;
 			}
+			var fromUser = angular.fromJson(sessionStorage.user).username;
 			vm.messages.$add({
                 from: fromUser,
                 body: vm.message
@@ -29,14 +27,15 @@
 			vm.message = "";
 		}
 		
-		function chatListener(){
-			vm.userMessages = ChatService.getMessagesByUser(fromUser)
-				.on('child_changed',function(childSnapshot) {
-					var toUser = childSnapshot.key();
-					vm.messages = ChatService.generateChatSession(toUser, fromUser);
-				});
+		function startChat(){
+			var fromUser = $location.search().fromUser;
+			var toUser = $location.search().toUser;
+			vm.messages = ChatService.generateChatSession(fromUser, toUser);
+			vm.messages.$loaded().then(function(messages){
+				console.log("Mensajes: ",messages);
+			});
 		}
 		
-		chatListener();
+		startChat();
 	}
 })();
