@@ -10,6 +10,7 @@
 		var vm = this;
 
 		vm.openCreateDialog = openCreateDialog;
+		vm.openViewDialog = openViewDialog;
 
 		function loadDemands(){
 			DemandsService.getAllDemands()
@@ -25,6 +26,22 @@
 				templateUrl: 'app/demands/create/createDemand.html',
 				targetEvent: $event,
 				clickOutsideToClose:true
+			})
+			.finally(function() {
+				loadDemands();
+			});
+		}
+		
+		function openViewDialog($event, demandID){
+			$mdDialog.show({
+				controller: 'ViewDemandController',
+				controllerAs: 'vm',
+				templateUrl: 'app/demands/view/viewDemand.html',
+				targetEvent: $event,
+				clickOutsideToClose:true,
+				locals: {
+					demandID: demandID
+				}
 			})
 			.finally(function() {
 				loadDemands();

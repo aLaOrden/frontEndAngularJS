@@ -54,7 +54,7 @@
 							</div>
 							<div layout="column" layout-align="center center">
 								<h3>{{item.price}}</h3>
-								<md-button>Aplicar</md-button>
+								<md-button ng-click="vm.openViewDialog($event, item.id)" class="md-primary">Ver más</md-button>
 							</div>
 						</md-item-content>
 						<md-divider md-inset hide-sm ng-if="!$last"/>
