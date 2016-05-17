@@ -31,7 +31,7 @@
 				}
 			})
 			.finally(function() {
-				loadDemands();
+				loadOffers();
 			});
 		}
 		
