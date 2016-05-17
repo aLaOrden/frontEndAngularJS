@@ -3,20 +3,18 @@
   <form>
     <div>
       <div class="inLine">
-        <md-card>
-          <md-input-container class="md-icon-float md-block">
-            <label>Buscar</label>
-            <input ng-model="vm.home_search" type="text">
-          </md-input-container>
-        </md-card>
-      </div>
-      <div class="inLine">
-        <md-button ng-click="">Buscar</md-button>
+        <md-input-container class="md-icon-float md-block">
+            <label ng-if="vm.switch">Buscar en Ofertas</label>
+            <label ng-if="!vm.switch">Buscar en Demandas</label>
+          <md-icon md-svg-src="/assets/svg/search.svg" class="search"></md-icon>
+          <input ng-model="vm.home_search" type="text">
+        </md-input-container>
+        <md-button ng-click="">Go</md-button>
       </div>
     </div>
     <div class="inLine">
       <md-switch ng-model="vm.switch">
-        <p ng-if="vm.switch">Oferta</p>
+        <p ng-if="vm.switch">&nbsp Oferta &nbsp &nbsp</p>
         <p ng-if="!vm.switch">Demanda</p>
       </md-switch>
     </div>
