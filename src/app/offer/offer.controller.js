@@ -10,6 +10,7 @@
 		var vm = this;
 		
 		vm.openCreateDialog = openCreateDialog;
+		vm.openViewDialog = openViewDialog;
 		vm.search = {};
 		
 		function loadOffers(){
@@ -18,6 +19,22 @@
 					vm.offers = offers;
 					loadFilters();
 				});
+		}
+		
+		function openViewDialog($event, offerID){
+			$mdDialog.show({
+				controller: 'ViewOfferController',
+				controllerAs: 'vm',
+				templateUrl: 'app/offer/view/viewOffer.html',
+				targetEvent: $event,
+				clickOutsideToClose:true,
+				locals: {
+					offerID: offerID
+				}
+			})
+			.finally(function() {
+				loadOffers();
+			});
 		}
 		
 		function openCreateDialog($event){			

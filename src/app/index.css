@@ -56,7 +56,7 @@ md-content.md-default-theme {
 }
 
 #background {
-  background-image: url("/assets/images/main.jpg");
+  background-image: url("../assets/images/main.jpg");
   color: white;
   font-size: 5em;
   text-align: center;

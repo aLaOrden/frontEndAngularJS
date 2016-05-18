@@ -10,6 +10,7 @@
 		var vm = this;
 
 		vm.openCreateDialog = openCreateDialog;
+		vm.openViewDialog = openViewDialog;
 		vm.search = {};
 
 		function loadDemands(){
@@ -38,6 +39,22 @@
 				vm.search.title = $location.search().search;
 				$scope.accordion.toggle(0);
 			}
+		}
+			
+		function openViewDialog($event, demandID){
+			$mdDialog.show({
+				controller: 'ViewDemandController',
+				controllerAs: 'vm',
+				templateUrl: 'app/demands/view/viewDemand.html',
+				targetEvent: $event,
+				clickOutsideToClose:true,
+				locals: {
+					demandID: demandID
+				}
+			})
+			.finally(function() {
+				loadDemands();
+			});
 		}
 
 		loadDemands();

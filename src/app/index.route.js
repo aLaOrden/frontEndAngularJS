@@ -42,6 +42,11 @@
 		controller: 'RegisterUserController',
 		controllerAs: 'vm'
 	})
+	.when('/chat', {
+		templateUrl: 'app/chat/chat.html',
+		controller: 'ChatController',
+		controllerAs: 'vm'
+	})
     .otherwise({
         redirectTo: '/home'
     });
