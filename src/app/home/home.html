@@ -6,9 +6,9 @@
         <md-input-container class="md-icon-float md-block">
             <label class="input-white">Buscar en {{vm.switch? "Ofertas" : "Demandas"}}</label>
           <md-icon md-svg-src="/assets/svg/search.svg" class="search"></md-icon>
-          <input class="input-white" ng-model="vm.home_search" type="text">
+          <input class="input-white" ng-model="vm.searchTittle" type="text">
         </md-input-container>
-        <md-button ng-click="">Buscar</md-button>
+        <md-button ng-click="vm.searchByTittle()">Buscar</md-button>
       </div>
     </div>
     <div class="inLine">

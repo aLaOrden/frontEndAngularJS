@@ -6,15 +6,17 @@
 		.controller('DemandsController', DemandsController);
 
 	/** @ngInject */
-	function DemandsController(DemandsService, $mdDialog) {
+	function DemandsController(DemandsService, $mdDialog, $location, $scope) {
 		var vm = this;
 
 		vm.openCreateDialog = openCreateDialog;
+		vm.search = {};
 
 		function loadDemands(){
 			DemandsService.getAllDemands()
 				.then(function(demands){
 					vm.demands = demands;
+					loadFilters();
 				});
 		}
 
@@ -29,6 +31,13 @@
 			.finally(function() {
 				loadDemands();
 			});
+		}
+		
+		function loadFilters(){
+			if($location.search().search){
+				vm.search.title = $location.search().search;
+				$scope.accordion.toggle(0);
+			}
 		}
 
 		loadDemands();
