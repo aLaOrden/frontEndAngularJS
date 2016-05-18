@@ -22,9 +22,12 @@
 			$mdDialog.show({
 				controller: 'CreateDemandController',
 				controllerAs: 'vm',
-				templateUrl: 'app/demands/create/create_demand.html',
+				templateUrl: 'app/demands/create/createDemand.html',
 				targetEvent: $event,
 				clickOutsideToClose:true
+			})
+			.finally(function() {
+				loadDemands();
 			});
 		}
 

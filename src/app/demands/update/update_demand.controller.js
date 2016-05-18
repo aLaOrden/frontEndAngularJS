@@ -25,6 +25,7 @@
 	function loadDemand(){
 		DemandsService.getDemandsByID(demandID)
 			.then(function(demand){
+				demand.deadline = new Date(demand.deadline);
 				vm.demand = demand;
 			});
     }

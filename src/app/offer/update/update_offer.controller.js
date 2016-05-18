@@ -11,6 +11,8 @@
 
     vm.updateOffer = updateOffer;
     vm.closeDialog = closeDialog;
+	vm.selectLocation = selectLocation;
+	vm.mapCenter = { latitude: 4.57, longitude: -73.97, idkey: 1 };
 
     function updateOffer(){
       OfferService.updateOffer(vm.offer)
@@ -34,6 +36,12 @@
     function closeDialog(){
 		$mdDialog.cancel();
     }
+	
+	function selectLocation(){
+		vm.offer.latitude = vm.mapCenter.latitude;
+		vm.offer.longitude = vm.mapCenter.longitude;
+		vm.selectingLocation = !vm.selectingLocation;
+	}
 	
 	loadOffer();
   }

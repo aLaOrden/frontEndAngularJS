@@ -22,9 +22,12 @@
 			$mdDialog.show({
 				controller: 'CreateOfferController',
 				controllerAs: 'vm',
-				templateUrl: 'app/offer/create/create_offer.html',
+				templateUrl: 'app/offer/create/createOffer.html',
 				targetEvent: $event,
 				clickOutsideToClose:true
+			})
+			.finally(function() {
+				loadOffers();
 			});
 		}
 		
