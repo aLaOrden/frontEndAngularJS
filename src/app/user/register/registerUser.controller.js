@@ -16,7 +16,7 @@
 		function registerUser(){
 			UserService.createUser(vm.profile)
 				.then(function(){
-					toastr.success('El usuario fue registrado con exito', 'Oferta creada');
+					toastr.success('El usuario fue registrado con exito', 'Usuario creado');
 					$location.url("/login");
 				})
 				.catch(function(){
