@@ -1,4 +1,4 @@
-﻿<div>
+﻿<div style="width:100%; height:100%">
 	<md-toolbar class="md-tall md-whiteframe-4dp md-hue-1">
 		<div class="md-toolbar-tools">
 			<h2>
@@ -9,9 +9,41 @@
 	
 	<md-card>
 		<md-card-content>
+			<v-accordion class="vAccordion--default" control="accordion">
+				<v-pane>
+					<v-pane-header>
+						Filtrar ofertas
+					</v-pane-header>
+					<v-pane-content>
+						<div layout="row" flex>
+							<md-input-container class="md-block" flex>
+								<label>Titulo</label>
+								<input name="titleSearch" id="titleSearch" ng-model="vm.search.title">
+							</md-input-container>
+							<md-input-container class="md-block" flex>
+								<label>Descripción</label>
+								<input name="descriptionSearch" id="descriptionSearch" ng-model="vm.search.description">
+							</md-input-container>
+							<md-input-container class="md-block" flex>
+								<label>Precio</label>
+								<input name="priceSearch" id="priceSearch" type="number" ng-model="vm.search.price">
+							</md-input-container>
+							<md-content layout="column">
+								<label>Puntuación</label>
+								<uib-rating state-on="'fa fa-star'" state-off="'fa fa-star-o'" ng-model="vm.search.rating"></uib-rating>
+							</md-content>
+						</div>
+					</v-pane-content>
+				</v-pane>
+			</v-accordion>
+		</md-card-content>
+	</md-card>
+	
+	<md-card>
+		<md-card-content>
 			<h2>Ultimas ofertas</h2>
 			<md-list>
-				<md-item ng-repeat="item in vm.offers">
+				<md-item ng-repeat="item in vm.offers | filter: vm.search as results" ng-animate="'animate'" class="animate-repeat">
 					<md-item-content layout="row">
 						<div class="inset">
 							<img ng-src="{{item.image_url}}" class="md-avatar" />
@@ -32,6 +64,11 @@
 					</md-item-content>
 					<md-divider md-inset hide-sm ng-if="!$last"/>
 					<md-divider hide-gt-sm ng-if="!$last"/>
+				</md-item>
+				<md-item ng-if="results.length === 0" class="animate-repeat">
+					<div layout="column" layout-align="center center">
+						<h4>No se han encontrado resultados para tu búsqueda</h4>
+					</div>
 				</md-item>
 				<md-divider/>
 				<md-item layout>

@@ -3,20 +3,20 @@
   <form>
     <div>
       <div class="inLine">
-        <md-card>
-          <md-input-container class="md-icon-float md-block">
-            <label>Buscar</label>
-            <input ng-model="vm.home_search" type="text">
-          </md-input-container>
-        </md-card>
-      </div>
-      <div class="inLine">
-        <md-switch ng-model="vm.switch">
-          <p ng-if="vm.switch">Oferta</p>
-          <p ng-if="!vm.switch">Demanda</p>
-        </md-switch>
+        <md-input-container class="md-icon-float md-block">
+            <label class="input-white">Buscar en {{vm.switch? "Ofertas" : "Demandas"}}</label>
+          <md-icon md-svg-src="/assets/svg/search.svg" class="search"></md-icon>
+          <input class="input-white" ng-model="vm.searchTittle" type="text">
+        </md-input-container>
+        <md-button ng-click="vm.searchByTittle()">Buscar</md-button>
       </div>
     </div>
-    <md-button class="md-raised" ng-click="">Buscar</md-button>
+    <div class="inLine">
+      <md-switch ng-model="vm.switch">
+		<p>{{vm.switch? "&nbsp Oferta &nbsp &nbsp" : "Demanda"}}</p>
+      </md-switch>
+    </div>
   </form>
+  <md-button ng-click="vm.offersView()">Todas las Ofertas</md-button>
+  <md-button ng-click="vm.demandsView()">Todas las Demandas</md-button>
 </div>

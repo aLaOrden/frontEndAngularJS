@@ -34,6 +34,7 @@
 		}
 		
 		function createOffer(offer){
+			offer = angular.copy(offer);
 			offer.deadline = offer.deadline.getTime();
 			return OfferResource.create(offer).$promise;
 		}

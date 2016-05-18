@@ -34,6 +34,7 @@
 		}
 		
 		function createDemand(demand){
+			demand = angular.copy(demand);
 			demand.deadline = demand.deadline.getTime();
 			return DemandResource.create(demand).$promise;
 		}

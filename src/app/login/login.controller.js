@@ -14,18 +14,18 @@
 		
 		function login(){
 			LoginService.makeLogin(vm.userData)
-				.then(function(auth){
-					if(auth.access === "denied"){
+				.then(function(userInfo){
+					sessionStorage.user = angular.toJson(userInfo);
+					$rootScope.$emit("login");
+					redirect('/offer');
+				})
+				.catch(function(error){
+					if(error.status === 403){
 						toastr.error('Nombre de usuario o contraseña incorrectas!', 'Error!');
 					}
 					else{
-						sessionStorage.user = JSON.stringify(auth);
-						$rootScope.$emit("login");
-						redirect('/offer');
+						toastr.error('Hubo un error al intentar acceder a su cuenta!', 'Error!');
 					}
-				})
-				.catch(function(){
-					toastr.error('Hubo un error al intentar acceder a su cuenta!', 'Error!');
 				});
 		}
 		

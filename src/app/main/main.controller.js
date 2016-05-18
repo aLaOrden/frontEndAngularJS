@@ -6,7 +6,7 @@
 		.controller('MainController', MainController);
 
 	/** @ngInject */
-	function MainController($mdSidenav,app_menu, $location, $rootScope) {
+	function MainController($mdSidenav,app_menu, $location, $rootScope, $scope) {
 		var vm = this;
 
 		vm.toggleMenu = toggleMenu;
@@ -43,7 +43,12 @@
 		
 		detectSession();
 		
-		$rootScope.$on("login",showLogout);
-		$rootScope.$on("logout",showLogin);
+		var onLogin = $rootScope.$on("login",showLogout);
+		var onLogout = $rootScope.$on("logout",showLogin);
+		
+		$scope.$on('$destroy', function(){
+			onLogin();
+			onLogout();
+		});
 	}
 })();

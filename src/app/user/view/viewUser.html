@@ -7,7 +7,7 @@
 				<div>{{vm.profile.username}}</div>
 			</div>
 		</div>
-		<md-button class="md-fab md-fab-bottom-right fab-border" aria-label="Favorite">
+		<md-button class="md-fab md-fab-bottom-right fab-border" aria-label="Favorite" ng-if="!vm.showEdit">
 			<md-icon md-svg-icon="star_fill"></md-icon>
 		</md-button>
 	</md-toolbar>
@@ -50,7 +50,7 @@
 						<input value=" " readonly/>
 					</md-input-container>
 				</md-content>
-				<md-button class="md-primary" ng-click="vm.openEditProfileDialog($event)">Editar perfil</md-button>
+				<md-button class="md-primary" ng-click="vm.openEditProfileDialog($event)" ng-if="vm.showEdit">Editar perfil</md-button>
 			</md-content>
 		</md-card-content>
 	</md-card>
@@ -70,6 +70,7 @@
 		<md-list flex>
 			<md-list-item ng-repeat="demand in vm.profile.demands">
 				<p>{{ demand.id + " - " +demand.name }}</p>
+				<md-button class="md-primary" >Demanda solucionada</md-button>
 				<md-button class="md-primary" ng-click="vm.openEditDemandDialog($event, demand.id)">Editar</md-button>
 				<md-button class="md-primary" ng-click="vm.openDeleteDemandDialog($event, demand.id)">Eliminar</md-button>
 			</md-list-item>
@@ -92,6 +93,7 @@
 		<md-list flex>
 			<md-list-item ng-repeat="offer in vm.profile.offers">
 				<p>{{ offer.id + " - " +offer.name }}</p>
+				<md-button class="md-primary" >Oferta solucionada</md-button>
 				<md-button class="md-primary" ng-click="vm.openEditOfferDialog($event, offer.id)">Editar</md-button>
 				<md-button class="md-primary" ng-click="vm.openDeleteOfferDialog($event, offer.id)">Eliminar</md-button>
 			</md-list-item>
