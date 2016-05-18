@@ -5,7 +5,7 @@
 		.module('ingeSoftIi')
 		.controller('LoginController', LoginController);
 
-	function LoginController(LoginService, $location, toastr, $rootScope, $mdDialog) {
+	function LoginController(LoginService, $location, toastr, $rootScope) {
 		var vm = this;
 		vm.userData = {};
 		vm.login = login;

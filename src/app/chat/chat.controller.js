@@ -11,10 +11,6 @@
 		
 		vm.sendMessage = sendMessage;
 		
-		function startChat(toUser, fromUser){
-			vm.messages = ChatService.generateChatSession(fromUser, toUser);
-		}
-		
 		function sendMessage(keyEvent){
 			if(!vm.message || keyEvent && keyEvent.which !== 13){
 				return;
@@ -31,9 +27,6 @@
 			var fromUser = $location.search().fromUser;
 			var toUser = $location.search().toUser;
 			vm.messages = ChatService.generateChatSession(fromUser, toUser);
-			vm.messages.$loaded().then(function(messages){
-				console.log("Mensajes: ",messages);
-			});
 		}
 		
 		startChat();
