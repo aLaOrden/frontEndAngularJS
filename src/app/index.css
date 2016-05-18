@@ -139,3 +139,8 @@ md-content.md-default-theme {
     top: 20px;
 	z-index: 10;
 }
+
+.input-white {
+	border-color: white !important; 
+	color: white !important;
+}
