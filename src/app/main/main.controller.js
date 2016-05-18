@@ -6,9 +6,10 @@
 		.controller('MainController', MainController);
 
 	/** @ngInject */
-	function MainController($mdSidenav,app_menu, $location, $rootScope, $scope) {
+	function MainController(ChatService, $mdSidenav, app_menu, $location, $rootScope, $scope, toastr, $mdDialog) {
 		var vm = this;
-
+		
+		var chatListener;
 		vm.toggleMenu = toggleMenu;
 		vm.changeLocation = changeLocation;
 
@@ -32,9 +33,41 @@
 			});
 		}
 		
+		function startChatListener(){
+			ChatService.setUserConectionStatus(true);
+			chatListener = ChatService.startChatListener(redirectChat);			
+		}
+		
+		function stopChatListener(){
+			ChatService.setUserConectionStatus(false);
+			ChatService.stopChatListener(chatListener);
+		}
+		
+		function redirectChat(chatRegister) {
+			if($location.url().indexOf("/chat") !== 0){
+				var fromUser = chatRegister.key();
+				
+				var confirmChat = $mdDialog.confirm()
+					.title("Solicitud de chat entrante")
+					.textContent("El usuario "+fromUser+" desea chatear contigo")
+					.ok("Iniciar chat")
+					.cancel("Ignorar");
+					
+				$mdDialog.show(confirmChat).then(function() {
+					var toUser = angular.fromJson(sessionStorage.user).username;
+					$location.url("/chat");
+					$location.search("fromUser",fromUser);
+					$location.search("toUser",toUser);
+				}, function() {
+					toastr.info("El chat del usuario "+fromUser+" ha sido ignorado");
+				});
+			}
+		}
+		
 		function detectSession(){
 			if(sessionStorage.user && $location.url() !== "/logout"){
-				showLogout()
+				showLogout();
+				startChatListener();
 			}
 			else{
 				showLogin();
@@ -45,10 +78,14 @@
 		
 		var onLogin = $rootScope.$on("login",showLogout);
 		var onLogout = $rootScope.$on("logout",showLogin);
+		var runChat = $rootScope.$on("runChat",startChatListener);
+		var stopChat = $rootScope.$on("stopChat",stopChatListener);
 		
 		$scope.$on('$destroy', function(){
 			onLogin();
 			onLogout();
+			runChat();
+			stopChat();
 		});
 	}
 })();

@@ -6,7 +6,7 @@
 		.controller('ViewUserController', ViewUserController);
 
 	/** @ngInject */
-	function ViewUserController(UserService, $location, toastr, $mdDialog) {
+	function ViewUserController(UserService, ChatService, $location, toastr, $mdDialog) {
 		var vm = this;
 
 		vm.openEditDemandDialog = openEditDemandDialog;
@@ -14,12 +14,17 @@
 		vm.openEditOfferDialog = openEditOfferDialog;
 		vm.openDeleteOfferDialog = openDeleteOfferDialog;
 		vm.openEditProfileDialog = openEditProfileDialog;
+		vm.startChar = startChar;
 		
 		
 		function loadProfile(profileID){
 			UserService.getUserByID(profileID)
 				.then(function(profile){
 					vm.profile = profile;
+					ChatService.getUserConectionStatus(profile.username)
+						.then(function(isOnline){
+							vm.profile.isOnline = isOnline;
+						});
 				});
 		}
 		
@@ -92,6 +97,14 @@
 				}
 			})
 			.finally(detectProfile);
+		}
+		
+		function startChar(){
+			var fromUser = angular.fromJson(sessionStorage.user).username;
+			var toUser = vm.profile.username;
+			$location.url("/chat");
+			$location.search("fromUser",fromUser);
+			$location.search("toUser",toUser);
 		}
 		
 		function detectProfile(){

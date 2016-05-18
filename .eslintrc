@@ -9,6 +9,7 @@
     "angular": true,
     "module": true,
     "inject": true,
-	"_": true
+	"_": true,
+	"Firebase": true
   }
 }

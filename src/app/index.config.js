@@ -21,6 +21,7 @@
 		.icon("menu", "assets/svg/menu.svg", 24)
 		.icon("close", "assets/svg/close.svg", 24)
 		.icon("account", "assets/svg/account.svg", 24)
+		.icon("account_circle", "assets/svg/account_circle.svg", 24)
 		.icon("key", "assets/svg/key.svg", 24)
 		.icon("share", "assets/svg/share.svg", 24)
 		.icon("star", "assets/svg/star.svg", 24)
