@@ -1,0 +1,67 @@
+<md-dialog aria-label="Ver oferta">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Detalles de la oferta</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+        <md-icon md-svg-icon="close" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <form name="createForm" novalidate>
+    <md-dialog-content>
+		<md-content class="md-padding">
+			<div ng-show="!vm.selectingLocation">
+				<md-input-container class="md-block">
+					<label>Titulo</label>
+					<input ng-model="vm.offer.title" readonly>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Descripción</label>
+					<input ng-model="vm.offer.description" readonly>
+				</md-input-container>
+
+				<md-content layout="row" flex>
+					<md-input-container class="md-block" flex>
+						<label>Latitud</label>
+						<input ng-model="vm.offer.latitude" readonly>
+					</md-input-container>
+
+					<md-input-container class="md-block" flex>
+						<label>Longitud</label>
+						<input ng-model="vm.offer.longitude" readonly>
+					</md-input-container>
+					<md-button ng-click="vm.selectLocation()" class="md-icon-button">
+						<md-icon md-svg-icon="location" aria-label="Location"></md-icon>
+					</md-button>
+				</md-content>
+
+				<md-input-container class="md-block">
+					<label>Precio</label>
+					<input ng-model="vm.offer.price" readonly>
+				</md-input-container>
+				
+				<md-content layout="row" flex>
+					<md-input-container class="md-block" flex>
+						<label>Usuario</label>
+						<input ng-model="vm.offer.username" readonly>
+					</md-input-container>
+					<md-button ng-click="vm.viewProfile()" class="md-primary">
+						<md-icon md-svg-icon="account" aria-label="account"></md-icon>
+						<span>Ver perfil</span>
+					</md-button>
+				</md-content>
+
+				<md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
+				<md-button ng-click="vm.applyOffer()" class="md-primary">Aplicar</md-button>
+			</div>
+			<div ng-if="vm.selectingLocation">
+				<ui-gmap-google-map center='vm.mapCenter' zoom='8' options="{'draggable':false, 'disableDoubleClickZoom':true, 'maxZoom':8, 'minZoom': 8}">
+					<ui-gmap-marker	coords='vm.mapCenter' idKey="vm.mapCenter.idkey"></ui-gmap-marker>
+				</ui-gmap-google-map>
+				<md-button ng-click="vm.selectLocation()" class="md-primary">Volver</md-button>
+			</div>
+		</md-content>
+    </md-dialog-content>
+  </form>
+</md-dialog>
