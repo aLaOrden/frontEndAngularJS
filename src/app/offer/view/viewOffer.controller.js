@@ -17,7 +17,7 @@
 	
 	function viewProfile(){
 		$location.url("/viewUser");
-		$location.search("id",vm.offer.userID);
+		$location.search("id",vm.offer.userId);
 		$mdDialog.hide();
 	}
 	
