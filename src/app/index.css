@@ -58,10 +58,6 @@ md-content.md-default-theme {
 #background {
   background-image: url("../assets/images/main.jpg");
   color: white;
-  font-size: 5em;
-  text-align: center;
-  height: 100%;
-  width: 100%;
   position: absolute;
 }
 
@@ -184,4 +180,17 @@ md-content.md-default-theme {
 .input-white {
 	border-color: white !important; 
 	color: white !important;
+}
+.md-fab {
+	position: fixed !important;
+}
+
+.title {
+	font-size: 5em;
+}
+
+@media (max-width: 600px) {
+	.title {
+		font-size: 3em;
+	}
 }

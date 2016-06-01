@@ -66,10 +66,12 @@
 		<md-list flex>
 			<md-list-item ng-repeat="demand in vm.profile.demands">
 				<p>{{ demand.id + " - " +demand.name }}</p>
+				<p>{{demand.id}}&nbsp;-&nbsp;{{demand.name?demand.name:"Demanda "+offer.id}}</p>
 				<md-button class="md-primary" >Demanda solucionada</md-button>
 				<md-button class="md-primary" ng-click="vm.openEditDemandDialog($event, demand.id)">Editar</md-button>
 				<md-button class="md-primary" ng-click="vm.openDeleteDemandDialog($event, demand.id)">Eliminar</md-button>
 			</md-list-item>
+			<p ng-if="vm.profile.demands.length === 0">El usuario no tiene registrado demandas</p>
 		</md-list>
     </md-card-content>
   </md-card>
@@ -88,33 +90,13 @@
     <md-card-content>
 		<md-list flex>
 			<md-list-item ng-repeat="offer in vm.profile.offers">
-				<p>{{ offer.id + " - " +offer.name }}</p>
+				<p>{{offer.id}}&nbsp;-&nbsp;{{offer.name?offer.name:"Oferta "+offer.id}}</p>
 				<md-button class="md-primary" >Oferta solucionada</md-button>
 				<md-button class="md-primary" ng-click="vm.openEditOfferDialog($event, offer.id)">Editar</md-button>
 				<md-button class="md-primary" ng-click="vm.openDeleteOfferDialog($event, offer.id)">Eliminar</md-button>
 			</md-list-item>
+			<p ng-if="vm.profile.offers.length === 0">El usuario no tiene registrado ofertas</p>
 		</md-list>
-    </md-card-content>
-  </md-card>
-
-
-  <md-card>
-    <md-toolbar class="md-whiteframe-4dp md-hue-1">
-      <div layout="row" layout-sm="column" layout-align="start end" layout-align-sm="start start">
-        <span flex/>
-        <span>
-          <h2>Mis favoritos</h2>
-        </span>
-      </div>
-    </md-toolbar>
-    <md-card-content>
-      <ul>
-        <li>
-          favorito 1
-          <md-button class="md-primary" ng-click="vm.openEditDialog($event)">Editar</md-button>
-          <md-button class="md-primary" ng-click="vm.openDeleteDialog($event)">Eliminar</md-button>
-        </li>
-      </ul>
     </md-card-content>
   </md-card>
 </div>

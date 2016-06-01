@@ -44,7 +44,7 @@
 				<md-content layout="row" flex>
 					<md-input-container class="md-block" flex>
 						<label>Usuario</label>
-						<input ng-model="vm.offer.username" readonly>
+						<input ng-model="vm.offer.userName" readonly>
 					</md-input-container>
 					<md-button ng-click="vm.viewProfile()" class="md-primary">
 						<md-icon md-svg-icon="account" aria-label="account"></md-icon>
@@ -52,8 +52,7 @@
 					</md-button>
 				</md-content>
 
-				<md-button ng-click="vm.closeDialog()" class="md-primary">Cancelar</md-button>
-				<md-button ng-click="vm.applyOffer()" class="md-primary">Aplicar</md-button>
+				<md-button ng-click="vm.closeDialog()" class="md-primary">Cerrar</md-button>
 			</div>
 			<div ng-if="vm.selectingLocation">
 				<ui-gmap-google-map center='vm.mapCenter' zoom='8' options="{'draggable':false, 'disableDoubleClickZoom':true, 'maxZoom':8, 'minZoom': 8}">

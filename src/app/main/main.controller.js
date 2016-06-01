@@ -19,6 +19,7 @@
 
 		function changeLocation(url){
 			$location.url(url);
+			toggleMenu();
 		}
 		
 		function showLogout(){

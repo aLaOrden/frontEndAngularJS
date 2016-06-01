@@ -23,7 +23,7 @@
 		
 		function viewProfile(){
 			$location.url("/viewUser");
-			$location.search("id",vm.demand.userID);
+			$location.search("id",vm.demand.userId);
 			$mdDialog.hide();
 		}
 		
