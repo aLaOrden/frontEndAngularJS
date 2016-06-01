@@ -59,6 +59,7 @@ md-content.md-default-theme {
   background-image: url("../assets/images/main.jpg");
   color: white;
   position: absolute;
+  min-height: 300px;
 }
 
 #contenido{
